@@ -1,0 +1,41 @@
+<div class="row">
+        <div class="jumbotron">
+                <p>Dashboard</p>
+        </div>
+</div>  
+
+<div class="row">                
+        <div class="pull-right">
+                <div class="col-md-8 col-sm-2">
+                        <input type="text" (keyup)="search($event.target.value)" class="form-control"/>
+                </div>
+                <button class="btn btn-default" routerLink="/add" >Add Service</button>
+        </div>
+</div>
+<hr/>
+<div class="row">
+        <table class="table table-striped">
+                <thead>
+                        <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Notes</th>
+                                <th>User</th>
+                        </tr>
+                </thead>                
+                <tbody>
+                        <tr *ngFor="let service of filteredData">
+                                <td>{{service.id}}</td>
+                                <td>{{service.date}}</td>                                
+                                <td>{{service.title}}</td>                                                                
+                                <td>{{service.description}}</td>                                                                
+                                <td>{{service.category}}</td>                                                                                                                                
+                                <td>{{service.notes}}</td>
+                                <td>{{service.user}}</td>                                                                                                
+                        </tr>                        
+                </tbody>
+        </table>
+</div>
