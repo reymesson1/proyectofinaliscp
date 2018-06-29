@@ -1,5 +1,6 @@
 import { Component,Injectable } from '@angular/core';
 import { RestDataSource } from '../model/rest.datasource';
+import { ActivatedRoute,Params }  from '@angular/router';
 
 @Component({
   selector: 'list-service',
@@ -12,11 +13,16 @@ export class ListServiceComponent {
   title = 'Listado de servicio';
 
   public services: any[];
-  filteredData: any[];
+  public filteredData: any[];
+  public id: any;
 
-  constructor(private data: RestDataSource){
+  constructor(private data: RestDataSource, private route: ActivatedRoute){
 
-    this.filteredData = data.services;
+    
+    this.filteredData = this.data.services;   
+
+    
+
   }
 
   ngOnInit(){
@@ -25,11 +31,18 @@ export class ListServiceComponent {
 
   search(s: string){
 
-    this.filteredData = this.services.filter(
+    this.filteredData = this.data.services.filter(
       (master) => master.title.toLowerCase().indexOf(s.toLowerCase()) !== -1
     );
-
   }
 
+  delete(s: string){
+
+    this.filteredData = this.filteredData.filter(
+      (master) => master.id != s
+    );
+
+    
+  }
 
 }

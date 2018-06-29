@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="jumbotron">
+          <p>Dashboard</p>
+  </div>
+</div>  
+
+<div class="row">                
+  <div class="pull-right">
+          <div class="col-md-8 col-sm-2">
+                  <input type="text" (keyup)="search($event.target.value)" class="form-control"/>
+          </div>
+          <button class="btn btn-default" routerLink="/add" >Add Offer</button>
+  </div>
+</div>
+
+<div class="row">
+  <ul class="nav nav-tabs">
+          <li><a routerLink="/home">Service</a></li>
+          <li class="active"><a routerLink="/offer">Offers</a></li>
+          <li><a href="#">Suggestions</a></li>                
+  </ul>
+</div>
+
+<div class="row">  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Notes</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+    </thead>                
+  </table>
+</div>

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Service } from './service.model';
 
 @Injectable()
 export class RestDataSource{
@@ -16,6 +15,7 @@ export class RestDataSource{
         "description":"Description1",
         "category":"Category1",
         "notes":"Notes1",
+        "price":"Price1",
         "user":"User1",
       },
       {
@@ -25,6 +25,7 @@ export class RestDataSource{
         "description":"Description2",
         "category":"Category2",
         "notes":"Notes2",
+        "price":"Price2",
         "user":"User2",
       },
       {
@@ -34,6 +35,7 @@ export class RestDataSource{
         "description":"Description3",
         "category":"Category3",
         "notes":"Notes3",
+        "price":"Price3",
         "user":"User3",
       },
       {
@@ -43,6 +45,7 @@ export class RestDataSource{
         "description":"Description4",
         "category":"Category4",
         "notes":"Notes4",
+        "price":"Price4",
         "user":"User4",
       },
     ];

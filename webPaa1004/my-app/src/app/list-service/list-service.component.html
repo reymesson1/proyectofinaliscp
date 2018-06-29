@@ -12,8 +12,17 @@
                 <button class="btn btn-default" routerLink="/add" >Add Service</button>
         </div>
 </div>
-<hr/>
+
 <div class="row">
+        <ul class="nav nav-tabs">
+                <li class="active"><a routerLink="/home">Service</a></li>
+                <li><a routerLink="/offer">Offers</a></li>
+                <li><a href="#">Suggestions</a></li>                
+        </ul>
+</div>
+
+<div class="row">
+
         <table class="table table-striped">
                 <thead>
                         <tr>
@@ -24,6 +33,7 @@
                                 <th>Category</th>
                                 <th>Notes</th>
                                 <th>User</th>
+                                <th>Actions</th>
                         </tr>
                 </thead>                
                 <tbody>
@@ -35,6 +45,7 @@
                                 <td>{{service.category}}</td>                                                                                                                                
                                 <td>{{service.notes}}</td>
                                 <td>{{service.user}}</td>                                                                                                
+                                <td>&nbsp;&nbsp;<i class="fa fa-edit" routerLink="/edit/{{service.id}}" ></i> &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" (click)="delete(service.id)"></i></td>
                         </tr>                        
                 </tbody>
         </table>
