@@ -10,18 +10,18 @@ import { ActivatedRoute,Params }  from '@angular/router';
 
 @Injectable()
 export class ListServiceComponent {
-  title = 'Listado de servicio';
-
-  public services: any[];
-  public filteredData: any[];
+  
+  public services: any[] = [];
+  public filteredData: any[] = [];
   public id: any;
 
   constructor(private data: RestDataSource, private route: ActivatedRoute){
-
     
-    this.filteredData = this.data.services;   
+    this.data.getServices().subscribe(data=>{
+      this.services = data;      
+    });
 
-    
+    this.filteredData = this.services;
 
   }
 
@@ -31,17 +31,18 @@ export class ListServiceComponent {
 
   search(s: string){
 
-    this.filteredData = this.data.services.filter(
+    this.filteredData = this.services.filter(
       (master) => master.title.toLowerCase().indexOf(s.toLowerCase()) !== -1
     );
   }
 
   delete(s: string){
 
-    this.filteredData = this.filteredData.filter(
-      (master) => master.id != s
-    );
+    // this.filteredData = this.filteredData.filter(
+    //   (master) => master.id != s
+    // );
 
+    this.data.removeService(s);
     
   }
 

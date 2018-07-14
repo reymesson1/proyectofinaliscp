@@ -22,7 +22,7 @@ export class AddServiceComponent {
   
   addService(s: Service){
 
-    this.data.services.push(s);
+    this.data.addService(s);
 
     this.router.navigateByUrl('/home');
   }

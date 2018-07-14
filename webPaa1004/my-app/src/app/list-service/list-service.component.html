@@ -6,10 +6,10 @@
 
 <div class="row">                
         <div class="pull-right">
-                <div class="col-md-8 col-sm-2">
+                <div class="col-md-7 col-sm-2">
                         <input type="text" (keyup)="search($event.target.value)" class="form-control"/>
                 </div>
-                <button class="btn btn-default" routerLink="/add" >Add Service</button>
+                <button class="btn btn-success" routerLink="/add" ><i class="fa fa-plus"></i>&nbsp;Add Service</button>
         </div>
 </div>
 
@@ -17,9 +17,9 @@
         <ul class="nav nav-tabs">
                 <li class="active"><a routerLink="/home">Service</a></li>
                 <li><a routerLink="/offer">Offers</a></li>
-                <li><a href="#">Suggestions</a></li>                
+                <li><a routerLink="/suggestion">Suggestions</a></li>                
         </ul>
-</div>
+</div> 
 
 <div class="row">
 
@@ -37,7 +37,7 @@
                         </tr>
                 </thead>                
                 <tbody>
-                        <tr *ngFor="let service of filteredData">
+                        <tr *ngFor="let service of filteredData;let i = index">
                                 <td>{{service.id}}</td>
                                 <td>{{service.date}}</td>                                
                                 <td>{{service.title}}</td>                                                                
@@ -45,7 +45,10 @@
                                 <td>{{service.category}}</td>                                                                                                                                
                                 <td>{{service.notes}}</td>
                                 <td>{{service.user}}</td>                                                                                                
-                                <td>&nbsp;&nbsp;<i class="fa fa-edit" routerLink="/edit/{{service.id}}" ></i> &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" (click)="delete(service.id)"></i></td>
+                                <td>
+                                        <button class="btn btn-primary"><i class="fa fa-eye" routerLink="/view/{{service.id}}" ></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button class="btn btn-warning"><i class="fa fa-edit" routerLink="/edit/{{service.id}}" ></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button class="btn btn-danger"><i class="fa fa-trash" (click)="delete(service.id)"></i></button></td>
                         </tr>                        
                 </tbody>
         </table>

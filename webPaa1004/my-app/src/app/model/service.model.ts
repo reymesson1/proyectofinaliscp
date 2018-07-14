@@ -6,7 +6,8 @@ export class Service{
     public description?: string,
     public category?: string,
     public notes?: string,
-    public user?: string  
+    public user?: string,
+    public offers?:any[]
   ){
   }
 }

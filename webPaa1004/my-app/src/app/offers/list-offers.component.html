@@ -1,23 +1,14 @@
 <div class="row">
   <div class="jumbotron">
-          <p>Dashboard</p>
+          <p>Offers</p>
   </div>
 </div>  
-
-<div class="row">                
-  <div class="pull-right">
-          <div class="col-md-8 col-sm-2">
-                  <input type="text" (keyup)="search($event.target.value)" class="form-control"/>
-          </div>
-          <button class="btn btn-default" routerLink="/add" >Add Offer</button>
-  </div>
-</div>
 
 <div class="row">
   <ul class="nav nav-tabs">
           <li><a routerLink="/home">Service</a></li>
           <li class="active"><a routerLink="/offer">Offers</a></li>
-          <li><a href="#">Suggestions</a></li>                
+          <li><a routerLink="/suggestion">Suggestions</a></li>                
   </ul>
 </div>
 
@@ -34,6 +25,22 @@
         <th>User</th>
         <th>Actions</th>
       </tr>
-    </thead>                
+    </thead> 
+    <tbody>
+        <tr *ngFor="let service of filteredData">
+                <td>{{service.id}}</td>
+                <td>{{service.date}}</td>                                
+                <td>{{service.title}}</td>                                                                
+                <td>{{service.description}}</td>                                                                
+                <td>{{service.category}}</td>                                                                                                                                
+                <td>{{service.notes}}</td>
+                <td>{{service.user}}</td>                                                                                                
+                <td>
+                  <button class="btn btn-warning"><i class="fa fa-edit" routerLink="/edit/{{service.id}}" ></i></button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-danger"><i class="fa fa-trash" (click)="delete(service.id)"></i></button>
+                </td>
+        </tr>                        
+    </tbody>             
   </table>
 </div>
