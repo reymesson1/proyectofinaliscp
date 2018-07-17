@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="jumbotron">
+          <p>Edit service</p>
+  </div>
+</div>
+<div class="row">
+<ul class="breadcrumb">
+  <li><a routerLink="/home">Home</a></li>
+  <li><a>Edit Service</a></li>    
+</ul>
+</div>  
+<div class="row">
+<form novalidate (ngSubmit)="addService(newService)">
+  <div class="form-group">
+    <label >Title</label>
+    <input class="form-control" type="text" name="title" [(ngModel)]="title" value="{{title}}" placeholder="{{title}}" readonly/>
+  </div>
+  <div class="form-group">
+    <label for="last_name">Description</label>
+    <textarea class="form-control" rows="5" name="description" [(ngModel)]="description" value={{description}} placeholder="{{description}}" readonly ></textarea>      
+  </div>
+  <div class="form-group">
+      <label for="sel1">Category</label>      
+      <input class="form-control" type="text" name="category" [(ngModel)]="category" value="{{category}}" placeholder="{{category}}" readonly/>
+  </div>
+  <div class="form-group">
+      <label >Notes</label>
+      <input type="text" class="form-control" type="text" name="notes" [(ngModel)]="notes" value="{{notes}}" placeholder="{{notes}}" readonly />
+  </div>
+  <div class="form-group">
+      <label >Price</label>
+      <input type="text" class="form-control" type="text" name="price" [(ngModel)]="price" value="{{price}}" placeholder="{{price}}" readonly />
+  </div>
+  <div class="pull-right">
+    <button type="button" class="btn btn-default" routerLink="/home">Cancel</button>
+    &nbsp;
+    &nbsp;
+    <button type="submit" class="btn btn-default">Edit</button>
+  </div>
+</form>
+</div>

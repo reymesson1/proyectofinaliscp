@@ -1,0 +1,29 @@
+<div class="row">
+        <form>
+                <div class="col-12 form-group">
+                        <input type="text" (keyup)="search($event.target.value)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Busqueda Rapida">
+                </div>            
+        </form>
+</div>
+
+<button class="btn btn-success pull-right" routerLink="/add" ><h1><i class="fa fa-plus"></i></h1>&nbsp;Add Service</button>
+
+<div class="row">                       
+        <div class="container-fluid">
+        <div class="row">
+                <div class="col-lg-4" *ngFor="let service of filteredData;let i = index" >
+                <div class="card">
+                <img class="card-img-top" src="//placehold.it/720x350" alt="Card image cap">
+                                <div class="card-block">
+                                        <h4 class="card-title">{{service.title}}</h4>
+                                        <p class="card-text">{{service.description}}</p>
+                                        <p class="card-text">{{service.category}}</p>
+                                        <a routerLink="/view/{{service.id}}" class="btn btn-primary">View More</a>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        </div>
+
+</div>

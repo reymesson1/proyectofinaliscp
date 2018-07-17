@@ -1,0 +1,38 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+      <li class="breadcrumb-item active" routerLink="/offer" aria-current="page">Offers</li>
+    </ol>
+</nav>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Notes</th>
+      <th>User</th>
+      <th>Actions</th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let service of filteredData">
+      <td>{{service.id}}</td>
+      <td>{{service.date}}</td>                                
+      <td>{{service.title}}</td>                                                                
+      <td>{{service.description}}</td>                                                                
+      <td>{{service.category}}</td>                                                                                                                                
+      <td>{{service.notes}}</td>
+      <td>{{service.user}}</td>                                                                                                
+      <td>
+        <button class="btn btn-warning"><i class="fa fa-edit" routerLink="/edit/{{service.id}}" ></i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-danger"><i class="fa fa-trash" (click)="delete(service.id)"></i></button>
+      </td>
+    </tr>                        
+  </tbody>             
+  
+</table>

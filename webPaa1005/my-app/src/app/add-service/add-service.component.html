@@ -1,0 +1,39 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+    <li class="breadcrumb-item active" routerLink="/add" aria-current="page">Add New Service</li>
+  </ol>
+</nav>
+
+<form novalidate (ngSubmit)="addService(newService)">
+  <div class="form-group">
+    <label >Title</label>
+    <input class="form-control" name="title" [(ngModel)]="newService.title" />
+  </div>
+  <div class="form-group">
+    <label for="last_name">Description</label>
+    <textarea class="form-control" rows="5" name="description" [(ngModel)]="newService.description" ></textarea>      
+  </div>
+  <div class="form-group">
+    <label for="sel1">Category</label>
+    <select class="form-control" id="sel1" [(ngModel)]="newService.category" name="category" >
+      <option>Select one option</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label >Notes</label>
+    <input type="text" class="form-control" [(ngModel)]="newService.notes" name="notes"/>
+  </div>
+  <div class="form-group">
+    <label >Price</label>
+    <input type="text" class="form-control" [(ngModel)]="newService.price" name="price"/>
+  </div>
+  <div class="pull-right">
+    <button type="button" class="btn btn-danger" routerLink="/home">Cancel</button>
+    &nbsp;
+    <button type="submit" class="btn btn-success">Create</button>
+  </div>
+</form>

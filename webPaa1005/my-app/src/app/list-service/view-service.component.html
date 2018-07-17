@@ -1,0 +1,65 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page" routerLink="/home">Home</li>
+    <li class="breadcrumb-item" aria-current="page">View Service</li>
+  </ol>
+</nav>
+    
+<div class="card">
+  <img class="card-img-top" src="//placehold.it/520x150" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text">{{description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Date: {{date}}</li>
+    <li class="list-group-item">Category: {{category}}</li>
+    <li class="list-group-item">Notes: {{notes}}</li>
+    <li class="list-group-item">Price: {{price}}</li>
+  </ul>
+  <div class="card-body">
+    <button class="btn btn-default" *ngIf="!isTrue" (click)="addSuggestion({'id':'1','title':'title1'})" ><i class="fa fa-thumbs-up"></i></button>
+    <button class="btn btn-primary" *ngIf="isTrue" (click)="addSuggestion({'id':'1','title':'title1'})" ><i class="fa fa-thumbs-up"></i></button>
+    <a href="#" class="card-link"></a>
+    <a href="#" class="card-link"></a>
+  </div>
+</div>
+
+<br/>
+
+<div id="accordion">
+  <div class="card" *ngFor="let offer of this.data.services[this.id].offers; let i = index" >
+    <div class="card-header" id="heading">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse"  [attr.data-target]="'#collapse' + i" aria-expanded="true" aria-controls="collapseOne">
+          {{offer.title}}
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse{{i}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        {{offer.description}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<div class="card text-white bg-primary mb-3">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+      <form (ngSubmit)="addOffer(newOffer)">    
+          <div class="form-group">
+            <label for="first_name">Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="newOffer.title">
+          </div>
+          <div class="form-group" >
+            <label for="description">Description</label>      
+            <textarea type="text" name="description" [(ngModel)]="newOffer.description" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+  </div>
+</div>
