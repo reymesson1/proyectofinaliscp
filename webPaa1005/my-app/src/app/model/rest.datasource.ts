@@ -7,7 +7,6 @@ import { Service } from './service.model';
 import { Offer } from './offer.model';
 import { Suggestion } from './suggestion.model';
 
-
 @Injectable()
 export class RestDataSource{
 
@@ -48,12 +47,32 @@ export class RestDataSource{
 
   addOffer(o:Offer, quantity: string){    
 
-    this.services[quantity].offers.push(new Offer("1",o.title,o.description));    
+    //this.services[quantity].offers.push(new Offer("1",o.title,o.description));    
+
+    this.http.post('http://localhost:4201/updateoffers', new Offer(quantity,o.title,o.description), {headers: this.headers}).map(res => res.json()).subscribe(data=>{                
+      this.services[parseInt(quantity)].offers.push(new Offer(quantity,o.title,o.description));    
+    });
+
   }
 
   addSuggestion(s:Suggestion,quantity: string){
     
-    this.services[quantity].suggestions.push(new Suggestion("1",s.id));
+    console.log(s);
+    //this.services[quantity].suggestions.push(new Suggestion("1",s.id));
+    this.http.post('http://localhost:4201/updatesuggestions', new Suggestion(quantity,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      
+      this.services[quantity].suggestions.push(new Suggestion(quantity,s.comments,s.user));      
+    });
+  }
+
+  removeSuggestion(id: string){
+
+    let index = this.services.findIndex(line => line.id == id);    
+
+    this.services[index].suggestions.clear();
+    console.log(this.services[index].suggestions);
+    
+    //this.services[id].suggestions.splice(parseInt(index),1);
   }
 
   removeService(id: string){

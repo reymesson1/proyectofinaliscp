@@ -58,6 +58,7 @@ export class ViewServiceComponent {
   }
 
   newOffer : Object = new Object();
+  newSuggestion: Suggestion = new Suggestion();
 
   addOffer(o){
 
@@ -65,18 +66,19 @@ export class ViewServiceComponent {
     this.newOffer = new Object();
   }  
 
+  public toggle : boolean = false;
+
   addSuggestion(s: Suggestion){
 
-    if(this.isTrue){
-
-      this.isTrue = false;
+    if(this.toggle){
+      this.toggle = false;
+      this.data.removeSuggestion(this.id);
     }else{
-
+      this.toggle = true;
       this.data.addSuggestion(s,this.id);
-      this.isTrue = true;
-      console.log(this.data.services);
+      this.newSuggestion = new Object();    
+      console.log(this.data.services[this.id]);
     }
-
   }
 
 }

@@ -16,6 +16,7 @@ export class RestDataSource{
   headers: Headers = new Headers({'Content-Type': 'application/json'})
 
   constructor(private http:Http){
+
     this.getInformation().subscribe(data=>{
       
       this.services = data;
@@ -41,21 +42,27 @@ export class RestDataSource{
 
     //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));
 
-    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[]), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       
       this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));      
     });
 
   }
 
-  addOffer(o:Offer, quantity: string){    
-
-    this.services[quantity].offers.push(new Offer("1",o.title,o.description));    
+  addOffer(o:Offer, quantity: string){  
+    
+    this.http.post('http://localhost:4201/updateoffers', new Offer(quantity,o.title,o.description), {headers: this.headers}).map(res => res.json()).subscribe(data=>{                
+      this.services[parseInt(quantity)].offers.push(new Offer(quantity,o.title,o.description));    
+    });
   }
 
   addSuggestion(s:Suggestion, quantity: string){
 
-    this.services[quantity].suggestions.push(new Suggestion("1",s.comments,s.user));
+    this.http.post('http://localhost:4201/updatesuggestions', new Suggestion(quantity,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      
+      this.services[quantity].suggestions.push(new Suggestion("1",s.comments,s.user));      
+    });
+
   }
 
   removeSuggestion(id: string){
