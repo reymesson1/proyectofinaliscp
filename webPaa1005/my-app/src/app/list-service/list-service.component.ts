@@ -27,6 +27,11 @@ export class ListServiceComponent {
 
   ngOnInit(){
 
+    this.data.getInformation().subscribe(data=>{
+      
+      this.filteredData = data;
+    },(err)=>{console.log(err)});
+
   }
 
   search(s: string){

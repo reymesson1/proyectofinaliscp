@@ -39,7 +39,13 @@ export class RestDataSource{
 
     let quantity = this.services.length;
 
-    this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));
+    //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));
+
+    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      
+      this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));      
+    });
+
   }
 
   addOffer(o:Offer, quantity: string){    
