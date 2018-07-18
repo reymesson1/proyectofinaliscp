@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RestDataSource } from '../model/rest.datasource';
 import { ActivatedRoute,Params }  from '@angular/router';
 import { Service } from '../model/service.model';
+import { Suggestion } from '../model/suggestion.model';
 
 @Component({
   selector: 'make-suggestions',
@@ -11,32 +12,24 @@ import { Service } from '../model/service.model';
 export class MakeSuggestionComponent {
 
   public id : string;
-  public complexTitle: Service;
-  public date: string;
-  public title: string;
-  public description : string;
-  public category : string;
-  public notes : string;
-  public price : string;
 
   constructor(private data: RestDataSource, private route: ActivatedRoute){
-    
+
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params["id"];
       }
     );
+  }
 
-    this.complexTitle = this.data.services.filter(
-      (master) => master.id == this.id
-    );
+  newSuggestion: Suggestion = new Suggestion();
 
-    this.title = this.complexTitle[0].title;
-    this.date = this.complexTitle[0].date;
-    this.description = this.complexTitle[0].description;
-    this.category = this.complexTitle[0].category;
-    this.notes = this.complexTitle[0].notes;    
-    this.price = this.complexTitle[0].price;
+  addSuggestion(s){
+
+    this.data.addSuggestion(s,this.id);
+
+    this.newSuggestion = new Object();
+
   }
 
   

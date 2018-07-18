@@ -18,15 +18,19 @@ export class ListServiceComponent {
   constructor(private data: RestDataSource, private route: ActivatedRoute){
     
     this.data.getServices().subscribe(data=>{
+      
       this.services = data;      
     });
 
     this.filteredData = this.services;
-
   }
 
   ngOnInit(){
 
+    this.data.getInformation().subscribe(data=>{
+      
+      this.filteredData = data;
+    },(err)=>{console.log(err)});
   }
 
   search(s: string){

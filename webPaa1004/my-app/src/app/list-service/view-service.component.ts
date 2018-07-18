@@ -3,6 +3,8 @@ import { RestDataSource } from '../model/rest.datasource';
 import { ActivatedRoute,Params }  from '@angular/router';
 import { Service } from '../model/service.model';
 import { Offer } from '../model/offer.model';
+import { Suggestion } from '../model/suggestion.model';
+
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -55,6 +57,7 @@ export class ViewServiceComponent {
   }
 
   newOffer : Object = new Object();
+  newSuggestion: Suggestion = new Suggestion();
 
   addOffer(o){
 
@@ -64,4 +67,24 @@ export class ViewServiceComponent {
     this.newOffer = new Object();
     
   }  
+
+  public toggle : boolean = false;
+
+  addSuggestion(s){
+
+    
+    if(this.toggle){
+      this.toggle = false;
+      this.data.removeSuggestion(this.id);
+    }else{
+      this.toggle = true;
+      this.data.addSuggestion(s,this.id);
+      this.newSuggestion = new Object();    
+      console.log(this.data.services[this.id]);
+    }
+    
+    
+  }
+
+  
 }

@@ -1,8 +1,17 @@
 <div class="row">
   <div class="jumbotron">
-          <p>Offers</p>
+          <p>Dashboard</p>
   </div>
 </div>  
+
+<div class="row">                
+  <div class="pull-right">
+          <div class="col-md-8 col-sm-2">
+                  <input type="text" (keyup)="search($event.target.value)" class="form-control"/>
+          </div>
+          <button class="btn btn-default" routerLink="/add" >Add Offer</button>
+  </div>
+</div>
 
 <div class="row">
   <ul class="nav nav-tabs">
@@ -35,11 +44,7 @@
                 <td>{{service.category}}</td>                                                                                                                                
                 <td>{{service.notes}}</td>
                 <td>{{service.user}}</td>                                                                                                
-                <td>
-                  <button class="btn btn-warning"><i class="fa fa-edit" routerLink="/edit/{{service.id}}" ></i></button>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-danger"><i class="fa fa-trash" (click)="delete(service.id)"></i></button>
-                </td>
+                <td>&nbsp;&nbsp;<i class="fa fa-edit" routerLink="/edit/{{service.id}}" ></i> &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" (click)="delete(service.id)"></i></td>
         </tr>                        
     </tbody>             
   </table>

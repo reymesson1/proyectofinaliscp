@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RestDataSource } from '../model/rest.datasource';
 import { ActivatedRoute,Params }  from '@angular/router';
+import { ListServiceComponent } from '../list-service/list-service.component';
 
 @Component({
   selector: 'offers',
@@ -13,9 +14,8 @@ export class OfferComponent {
   public id: any;
   offers: any[]=[];
 
-
   constructor(private data: RestDataSource, private route: ActivatedRoute){
-        
+
     for(let x=0;x<this.data.services.length;x++){
       
       if(this.data.services[x].offers!=undefined){
@@ -30,8 +30,7 @@ export class OfferComponent {
     this.filteredData = this.offers;
   }
 
-  ngOnInit(){
-
+  ngOnInit(){  
   }
 
   search(s: string){

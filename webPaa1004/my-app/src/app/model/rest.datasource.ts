@@ -1,93 +1,37 @@
 import { Injectable } from "@angular/core";
-import { Http, Request, RequestMethod } from "@angular/http";
+import { Http, Headers, Response , Request, RequestMethod, Jsonp } from "@angular/http";
 import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/map";
 import "rxjs/add/observable/from";
 import { Service } from './service.model';
 import { Offer } from './offer.model';
-
+import { Suggestion } from './suggestion.model';
 
 @Injectable()
 export class RestDataSource{
 
-  services: any = [];    
+  services: any = [];   
+  
+  apiUrl = 'http://localhost:4201/';
+  headers: Headers = new Headers({'Content-Type': 'application/json'})
 
-  constructor(){
-
-    this.services = [
-      {
-        "id": "0",
-        "date":"date",
-        "title":"Title",
-        "description":"Description",
-        "category":"Category",
-        "notes":"Notes",
-        "price":"Price",
-        "user":"User",
-        "offers": [
-          {
-            "id":"1",
-            "title":"subtitle1",
-            "description": "Test Offers"            
-          },{
-            "id":"2",
-            "title":"subtitle2",
-            "description": "Test Offers"            
-          },{
-            "id":"3",
-            "title":"subtitle3",
-            "description": "Test Offers"            
-          }
-        ]
-      },
-      {
-        "id": "1",
-        "date":"date1",
-        "title":"Title1",
-        "description":"Description1",
-        "category":"Category1",
-        "notes":"Notes1",
-        "price":"Price1",
-        "user":"User1",
-        "offers":[]
-      },
-      {
-        "id": "2",
-        "date":"date2",
-        "title":"Title2",
-        "description":"Description2",
-        "category":"Category2",
-        "notes":"Notes2",
-        "price":"Price2",
-        "user":"User2",
-        "offers":[]
-      },
-      {
-        "id": "3",
-        "date":"date3",
-        "title":"Title3",
-        "description":"Description3",
-        "category":"Category3",
-        "notes":"Notes3",
-        "price":"Price3",
-        "user":"User3",
-        "offers":[]
-      },
-      {
-        "id": "4",
-        "date":"date4",
-        "title":"Title4",
-        "description":"Description4",
-        "category":"Category4",
-        "notes":"Notes4",
-        "price":"Price4",
-        "user":"User4",
-        "offers":[]
-      },
-    ];
-    
+  constructor(private http:Http){
+    this.getInformation().subscribe(data=>{
+      
+      this.services = data;
+    },(err)=>{console.log(err)});
   }
-
+  
+  ngOnInit(){
+  }
+  
+  getInformation():Observable<any> {
+    let url = this.apiUrl +'services';
+	  return this.http.get(url, {headers: this.headers}).map(res => res.json());
+	}
+  
   getServices(): Observable<Service[]>{
+
     return Observable.from([this.services]);
   }
 
@@ -103,12 +47,27 @@ export class RestDataSource{
     this.services[quantity].offers.push(new Offer("1",o.title,o.description));    
   }
 
+  addSuggestion(s:Suggestion, quantity: string){
+
+    this.services[quantity].suggestions.push(new Suggestion("1",s.comments,s.user));
+  }
+
+  removeSuggestion(id: string){
+
+    let index = this.services.findIndex(line => line.id == id);    
+
+    this.services[index].suggestions.clear();
+    console.log(this.services[index].suggestions);
+    
+    //this.services[id].suggestions.splice(parseInt(index),1);
+  }
+
   removeService(id: string){
 
     let index = this.services.findIndex(line => line.id == id);    
 
-    this.services.splice(parseInt(index),1);
-    
+    this.services.splice(parseInt(index),1);    
   }
+
 
 }

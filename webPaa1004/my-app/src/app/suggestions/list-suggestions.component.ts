@@ -9,13 +9,26 @@ import { ActivatedRoute,Params }  from '@angular/router';
 })
 export class SuggestionComponent {
 
-  public services: any[];
-  public filteredData: any[];
+  public filteredData: any[] = [];
   public id: any;
+  suggestions: any[] = [];
 
   constructor(private data: RestDataSource, private route: ActivatedRoute){
     
-    this.filteredData = this.data.services;      
+    for(let x=0;x<this.data.services.length;x++){
+      
+      if(this.data.services[x].suggestions!=undefined){
+        
+        for(let y=0;y<this.data.services[x].suggestions.length;y++){
+
+          this.suggestions.push(this.data.services[x].suggestions[y]);
+        }
+
+      }
+
+    }
+
+    this.filteredData = this.suggestions;      
   }
 
   ngOnInit(){
@@ -24,7 +37,7 @@ export class SuggestionComponent {
 
   search(s: string){
 
-    this.filteredData = this.data.services.filter(
+    this.filteredData = this.suggestions.filter(
       (master) => master.title.toLowerCase().indexOf(s.toLowerCase()) !== -1
     );
   }
