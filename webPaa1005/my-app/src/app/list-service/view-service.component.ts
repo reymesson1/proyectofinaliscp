@@ -27,6 +27,9 @@ export class ViewServiceComponent {
   public services: any[] = [];
 
   public isTrue : boolean = false;
+
+  public count = 0;
+
     
   constructor(private route: ActivatedRoute, private data: RestDataSource){
 
@@ -55,6 +58,19 @@ export class ViewServiceComponent {
 
   ngOnInit(){
 
+    for(let x=0;x<this.data.services.length;x++){
+
+      if(this.data.services[x].suggestions!=undefined){
+
+        if(parseInt( Math.round((2/this.data.services[x].suggestions.length)*100).toFixed(2) )){
+          
+          this.count = parseInt( Math.round((2/this.data.services[x].suggestions.length)*100).toFixed(2) );           
+          console.log(this.count);
+        }
+      }
+    }
+
+
   }
 
   newOffer : Object = new Object();
@@ -72,7 +88,7 @@ export class ViewServiceComponent {
 
     if(this.toggle){
       this.toggle = false;
-      this.data.removeSuggestion(this.id);
+      this.data.removeSuggestion(s,this.id);
     }else{
       this.toggle = true;
       this.data.addSuggestion(s,this.id);

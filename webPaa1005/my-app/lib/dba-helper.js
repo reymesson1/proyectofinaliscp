@@ -66,6 +66,25 @@ module.exports = function(){
               });      
       });
     }
+
+    function removeSuggestions(suggestion,callback){
+    
+      var MongoClient = require('mongodb').MongoClient;
+      var url = "mongodb://localhost:27017/proyectofinal";
+  
+      MongoClient.connect(url, function(err, db) {
+        
+              if (err) throw err;
+              db.collection("services").updateOne({"id":parseInt(suggestion.id)},{"$set":{"suggestions":[]}}, function(err, res) {
+              
+                if (err) throw err;
+                console.log("1 record updated");
+                db.close();
+          
+              });      
+      });
+    }
+  
       
     return{
       
