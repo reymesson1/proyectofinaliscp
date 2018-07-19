@@ -39,6 +39,12 @@ app.post('/updatesuggestions',function(req,res){
     res.send(req.body);
 });
 
+app.post('/removesuggestions',function(req,res){
+
+    dba.removeSuggestions(req.body);
+    console.log(req.body);    
+});
+
 app.listen(4201, function(){
   console.log("Listening from 4201...");
 });

@@ -65,13 +65,17 @@ export class RestDataSource{
 
   }
 
-  removeSuggestion(id: string){
+  removeSuggestion(s:Suggestion, id: string){
 
     let index = this.services.findIndex(line => line.id == id);    
 
-    this.services[index].suggestions.clear();
-    console.log(this.services[index].suggestions);
-    
+    console.log(new Suggestion(index,s.comments,s.user));
+    this.http.post('http://localhost:4201/removesuggestions', new Suggestion(index,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      
+      console.log(new Suggestion(index,s.comments,s.user));
+      //this.services[index].suggestions.push(new Suggestion("1",s.comments,s.user));      
+    });
+        
     //this.services[id].suggestions.splice(parseInt(index),1);
   }
 

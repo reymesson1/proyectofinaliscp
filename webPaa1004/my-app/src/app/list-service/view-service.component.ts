@@ -26,8 +26,11 @@ export class ViewServiceComponent {
   public price : string;
 
   public services: any[] = [];
+  public count = 0;
     
   constructor(private route: ActivatedRoute, private data: RestDataSource){
+
+    
 
     this.data.getServices().subscribe(data=>{
       this.services = data;      
@@ -54,6 +57,18 @@ export class ViewServiceComponent {
 
   ngOnInit(){
 
+    for(let x=0;x<this.data.services.length;x++){
+
+      if(this.data.services[x].suggestions!=undefined){
+
+        if(parseInt( Math.round((2/this.data.services[x].suggestions.length)*100).toFixed(2) )){
+          
+          this.count = parseInt( Math.round((2/this.data.services[x].suggestions.length)*100).toFixed(2) );           
+          console.log(this.count);
+        }
+      }
+    }
+    
   }
 
   newOffer : Object = new Object();
@@ -74,13 +89,12 @@ export class ViewServiceComponent {
 
     
     if(this.toggle){
-      this.toggle = false;
-      this.data.removeSuggestion(this.id);
+      this.toggle = false;      
+      this.data.removeSuggestion(s,this.id);
     }else{
       this.toggle = true;
       this.data.addSuggestion(s,this.id);
-      this.newSuggestion = new Object();    
-      console.log(this.data.services[this.id]);
+      this.newSuggestion = new Object();          
     }
     
     
