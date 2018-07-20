@@ -84,6 +84,38 @@ module.exports = function(){
               });      
       });
     }
+
+    function getUsers(user,callback){ 
+    
+          var MongoClient = require('mongodb').MongoClient;
+          var url = "mongodb://localhost:27017/proyectofinal";
+          MongoClient.connect(url, function(err, db) {
+                    if (err) throw err;        
+                      db.collection("users").find({"username":user.username,"password":user.password}).toArray(function(err,result){            
+                          callback(result);   
+                })        
+                db.close();
+        });    
+    }
+
+    function setRegistration(registration,callback){
+      
+          var MongoClient = require('mongodb').MongoClient;
+          var url = "mongodb://localhost:27017/proyectofinal";
+      
+          MongoClient.connect(url, function(err, db) {
+            
+                  if (err) throw err;
+                  db.collection("users").insertOne(registration, function(err, res) {
+                  
+                    if (err) throw err;
+                    console.log("1 user record inserted");
+                    db.close();
+              
+                  });      
+          });
+    }
+
   
       
     return{
@@ -91,7 +123,10 @@ module.exports = function(){
       getServices: getServices,
       setServices: setServices,
       setOffers: setOffers,
-      setSuggestions: setSuggestions
+      setSuggestions: setSuggestions,
+      getUsers: getUsers,
+      setRegistration: setRegistration
+  
     }
         
   }      
