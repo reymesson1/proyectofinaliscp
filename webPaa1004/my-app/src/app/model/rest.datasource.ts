@@ -6,11 +6,15 @@ import "rxjs/add/observable/from";
 import { Service } from './service.model';
 import { Offer } from './offer.model';
 import { Suggestion } from './suggestion.model';
+import { User } from "./user.model";
 
 @Injectable()
 export class RestDataSource{
 
-  services: any = [];   
+  services: any = [];
+  authenticated: boolean = false;
+  username :string;   
+  password: string;
   
   apiUrl = 'http://localhost:4201/';
   headers: Headers = new Headers({'Content-Type': 'application/json'})
@@ -84,6 +88,22 @@ export class RestDataSource{
     let index = this.services.findIndex(line => line.id == id);    
 
     this.services.splice(parseInt(index),1);    
+  }
+
+  getAuthentication(u:User){
+    this.http.post('http://localhost:4201/authentication', new User("0", this.username,this.password), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      this.authenticated=data;         
+    });    
+    return this.authenticated;
+  }
+
+  setRegistration(u:User){
+
+    this.http.post('http://localhost:4201/registration', new User("0",u.username,u.password,u.firstname,u.lastname), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      console.log(data);        
+    });
+
+
   }
 
 

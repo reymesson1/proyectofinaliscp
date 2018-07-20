@@ -20,13 +20,19 @@ import { MakeOfferComponent } from './offers/make-offers.component';
 import { SuggestionComponent } from './suggestions/list-suggestions.component';
 import { MakeSuggestionComponent } from './suggestions/make-suggestions.component';
 
+import { AuthGuard } from "./admin/auth.guard";
+import { AuthComponent } from "./admin/auth.component";
+import { RegistrationComponent } from "./admin/registration.component";
+
 @NgModule({
   declarations: [
-    HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent
+    HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent
   ],
   imports: [
     HttpModule, JsonpModule,FormsModule, ReactiveFormsModule,BrowserModule, RouterModule.forRoot([
-      { path: "add", component: AddServiceComponent },
+      { path: "registration", component: RegistrationComponent },
+      { path: "admin", component: AuthComponent },
+      { path: "add", component: AddServiceComponent, canActivate: [AuthGuard] },
       { path: "home", component: HomeComponent },
       { path: "list", component: ListServiceComponent },
       { path: "view", component: ViewServiceComponent },
@@ -42,7 +48,7 @@ import { MakeSuggestionComponent } from './suggestions/make-suggestions.componen
       { path: "makesuggestion/:id", component: MakeSuggestionComponent },
       { path: "**", redirectTo: "/home" }
     ])],
-  providers: [RestDataSource],
-  bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent]
+  providers: [RestDataSource, AuthGuard],
+  bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent]
 })
 export class AppModule { }

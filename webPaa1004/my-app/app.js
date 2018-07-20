@@ -45,6 +45,23 @@ app.post('/removesuggestions',function(req,res){
     console.log(req.body);    
 });
 
+app.post('/authentication',function(req,res){
+      
+      dba.getUsers(req.body, function(data){        
+        if(data.length==1){
+          res.send(true);          
+        }else{
+          res.send(false);          
+        }
+      });
+});  
+
+app.post('/registration',function(req,res){
+
+  console.log(req.body);
+  dba.setRegistration(req.body);
+});  
+
 app.listen(4201, function(){
   console.log("Listening from 4201...");
 });
