@@ -24,13 +24,16 @@ import { AuthGuard } from "./admin/auth.guard";
 import { AuthComponent } from "./admin/auth.component";
 import { RegistrationComponent } from "./admin/registration.component";
 
+import { AccountComponent } from "./admin/account.component";
+
 
 @NgModule({
   declarations: [
-    HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent
+    HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent
   ],
   imports: [
     HttpModule,FormsModule, ReactiveFormsModule,BrowserModule, RouterModule.forRoot([
+      { path: "account", component: AccountComponent },
       { path: "registration", component: RegistrationComponent },
       { path: "admin", component: AuthComponent },
       { path: "add", component: AddServiceComponent, canActivate: [AuthGuard] },
@@ -50,6 +53,6 @@ import { RegistrationComponent } from "./admin/registration.component";
       { path: "**", redirectTo: "/home" }
     ])],
   providers: [RestDataSource,AuthGuard],
-  bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent]
+  bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent]
 })
 export class AppModule { }

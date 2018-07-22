@@ -22,7 +22,6 @@ export class RestDataSource{
 
   constructor(private http: Http){
     this.getInformation().subscribe(data=>{
-      console.log(data);
       this.services = data;
     },(err)=>{console.log(err)});
   }
@@ -62,7 +61,6 @@ export class RestDataSource{
 
   addSuggestion(s:Suggestion,quantity: string){
     
-    console.log(s);
     //this.services[quantity].suggestions.push(new Suggestion("1",s.id));
     this.http.post('http://localhost:4201/updatesuggestions', new Suggestion(quantity,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       
@@ -74,7 +72,6 @@ export class RestDataSource{
 
     let index = this.services.findIndex(line => line.id == id);    
 
-    console.log(new Suggestion(index,s.comments,s.user));
     this.http.post('http://localhost:4201/removesuggestions', new Suggestion(index,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       
       console.log(new Suggestion(index,s.comments,s.user));

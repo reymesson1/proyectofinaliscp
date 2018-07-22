@@ -1,6 +1,11 @@
 <div class="bg-default p-a-1 text-xs-center">
   <h3>Admin Account</h3>
 </div>
+
+<div class="alert alert-danger" *ngIf="!isWrong" role="alert">
+    Username or password are incorrect!
+</div>    
+
 <div class="bg-danger m-t-1 p-a-1 text-xs-center" 
       *ngIf="errorMessage != null">
   {{errorMessage}}
