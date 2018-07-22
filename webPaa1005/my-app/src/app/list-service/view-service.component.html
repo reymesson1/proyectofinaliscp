@@ -39,35 +39,11 @@
 
     <div id="collapse{{i}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        <div class="col-md-1">
           {{offer.description}}
-        </div>
-        <div class="col-md-2" *ngIf="count>=10&&count<=20">
-          <i class="fa fa-star"></i>                       
-        </div>
-        <div class="col-md-2" *ngIf="count>=20&&count<=30">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>                  
-        </div>
-        <div class="col-md-2" *ngIf="count>=30&&count<=40">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>                  
-          <i class="fa fa-star"></i>                  
-        </div>
-        <div class="col-md-2" *ngIf="count>=40&&count<=50">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>                  
-          <i class="fa fa-star"></i>                  
-          <i class="fa fa-star"></i>                  
-        </div>
-        <div class="col-md-2" *ngIf="count>=50">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>                  
-          <i class="fa fa-star"></i>                  
-          <i class="fa fa-star"></i>                  
-          <i class="fa fa-star"></i>                  
-        </div>
-
+          <div class="pull-right">
+            <button class="btn btn-success"><i class="fa fa-check"></i></button>&nbsp;
+            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+          </div>    
       </div>
     </div>
   </div>
