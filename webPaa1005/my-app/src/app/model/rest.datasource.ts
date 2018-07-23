@@ -41,7 +41,7 @@ export class RestDataSource{
 
     //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[]));
 
-    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,this.username,[]), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       
       this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));      
     });
@@ -102,8 +102,13 @@ export class RestDataSource{
     this.http.post('http://localhost:4201/registration', new User("0",u.username,u.password,u.firstname,u.lastname), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       console.log(data);        
     });
-
-
+  }
+    
+  getUsers():Observable<any[]> {
+  
+    let url = this.apiUrl +'users';
+  
+    return this.http.get(url, {headers: this.headers}).map(res => res.json());    
   }
 
 

@@ -16,6 +16,7 @@ export class AddServiceComponent {
   title = 'Add Service';
 
   constructor(private router: Router, private data: RestDataSource){
+    console.log(this.data.username);
   }
 
   newService: Service = new Service();
