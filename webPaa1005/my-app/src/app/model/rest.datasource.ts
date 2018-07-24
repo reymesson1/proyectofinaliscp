@@ -21,14 +21,9 @@ export class RestDataSource{
   headers: Headers = new Headers({'Content-Type': 'application/json'})
 
   constructor(private http: Http){
-  }
-  
-  ngOnInit(){
-    
     this.getInformation().subscribe(data=>{
       this.services = data;
     },(err)=>{console.log(err)});
-    
   }
 
   getInformation():Observable<any> {
