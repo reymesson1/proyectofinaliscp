@@ -21,16 +21,22 @@ import { SuggestionComponent } from './suggestions/list-suggestions.component';
 import { MakeSuggestionComponent } from './suggestions/make-suggestions.component';
 
 import { AuthGuard } from "./admin/auth.guard";
+import { AuthAccountGuard } from "./admin/auth.account.guard";
 import { AuthComponent } from "./admin/auth.component";
+import { AuthAccountComponent } from "./admin/auth.account.component";
 import { RegistrationComponent } from "./admin/registration.component";
+
+import { AccountComponent } from "./admin/account.component";
 
 @NgModule({
   declarations: [
-    HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent
+    HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent, AuthAccountComponent
   ],
   imports: [
     HttpModule, JsonpModule,FormsModule, ReactiveFormsModule,BrowserModule, RouterModule.forRoot([
+      { path: "account", component: AccountComponent, canActivate: [AuthAccountGuard] },
       { path: "registration", component: RegistrationComponent },
+      { path: "admin-account", component: AuthAccountComponent },
       { path: "admin", component: AuthComponent },
       { path: "add", component: AddServiceComponent, canActivate: [AuthGuard] },
       { path: "home", component: HomeComponent },
@@ -48,7 +54,7 @@ import { RegistrationComponent } from "./admin/registration.component";
       { path: "makesuggestion/:id", component: MakeSuggestionComponent },
       { path: "**", redirectTo: "/home" }
     ])],
-  providers: [RestDataSource, AuthGuard],
-  bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent]
+  providers: [RestDataSource, AuthGuard, AuthAccountGuard],
+  bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent, AuthAccountComponent]
 })
 export class AppModule { }

@@ -67,26 +67,21 @@ export class ViewServiceComponent {
           console.log(this.count);
         }
       }
-    }
-    
+    }    
   }
 
   newOffer : Object = new Object();
   newSuggestion: Suggestion = new Suggestion();
 
   addOffer(o){
-
         
-    this.data.addOffer(o,this.id);  
-    
-    this.newOffer = new Object();
-    
+    this.data.addOffer(o,this.id);      
+    this.newOffer = new Object();    
   }  
 
   public toggle : boolean = false;
 
   addSuggestion(s){
-
     
     if(this.toggle){
       this.toggle = false;      
@@ -96,8 +91,10 @@ export class ViewServiceComponent {
       this.data.addSuggestion(s,this.id);
       this.newSuggestion = new Object();          
     }
-    
-    
+  }
+
+  taskSelected(s:string){    
+    this.data.setAssignTo(s,this.data.username);    
   }
 
   

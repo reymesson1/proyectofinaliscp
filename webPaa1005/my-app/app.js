@@ -68,6 +68,11 @@ app.get('/users',function(req,res){
   });
 })
 
+app.post('/assignto',function(req,res){
+    
+  dba.setAssignTo(req.body); 
+});
+
 
 app.listen(4201, function(){
   console.log("Listening from 4201...");

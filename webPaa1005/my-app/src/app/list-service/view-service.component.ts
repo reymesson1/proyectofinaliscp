@@ -97,4 +97,8 @@ export class ViewServiceComponent {
     }
   }
 
+  taskSelected(s:string){    
+    this.data.setAssignTo(s,this.data.username);    
+  }
+
 }

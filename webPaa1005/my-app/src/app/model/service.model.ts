@@ -8,7 +8,8 @@ export class Service{
     public notes?: string,
     public user?: string,
     public offers?:any[],
-    public suggestions?:any[]
+    public suggestions?:any[],
+    public assignTo?: string
   ){
   }
 }

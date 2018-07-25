@@ -1,0 +1,71 @@
+<h1>Account Information</h1>
+
+<div class="card">
+    <div class="card-header">
+        Users Information
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+                <ul id="clothing-nav" class="nav nav-tabs" role="tablist">
+	
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Account Information</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hats" role="tab" id="hats-tab" data-toggle="tab" aria-controls="hats">My Offers</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                            <a class="nav-link" href="#hats2" role="tab" id="hats-tab" data-toggle="tab" aria-controls="hats2">My Suggestions</a>
+                    </li>
+    
+                    
+                </ul>
+                
+                <!-- Content Panel -->
+                <div id="clothing-nav-content" class="tab-content">
+                    
+                    <div role="tabpanel" class="tab-pane fade show active" id="home" aria-labelledby="home-tab">
+                            <div class="p-a-1">
+                                    <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            <input class="form-control" name="username" 
+                                            [(ngModel)]="user.username" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input class="form-control" name="firstname" 
+                                            [(ngModel)]="user.firstname" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input class="form-control" name="lastname" 
+                                            [(ngModel)]="user.lastname" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input class="form-control" type="text" name="password" 
+                                            [(ngModel)]="user.password" required />
+                                        </div>
+                                        <div class="text-xs-center">
+                                            <button class="btn btn-secondary" routerLink="/">Go back</button> &nbsp;
+                                            <button class="btn btn-primary" type="submit">Save</button>&nbsp;&nbsp;          
+                                        </div>
+                                    </form>
+                                </div>
+                    </div>
+                    
+                    <div role="tabpanel" class="tab-pane fade" id="hats" aria-labelledby="hats-tab">
+                        <offers></offers>
+                    </div>
+                    
+                    <div role="tabpanel" class="tab-pane fade" id="hats2" aria-labelledby="dropdown-shoes-tab">
+                        <suggestions></suggestions>
+                    </div>
+                </div>                    
+                
+        </blockquote>
+    </div>
+</div>

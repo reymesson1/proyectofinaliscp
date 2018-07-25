@@ -44,11 +44,12 @@ export class RestDataSource{
 
     let quantity = this.services.length;
 
-    //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));
+    this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));
 
-    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[]), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[],""), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       
-      this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));      
+      console.log('Successfully added');
+      //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[]));      
     });
 
   }
@@ -104,6 +105,21 @@ export class RestDataSource{
     });
 
 
+  }
+
+  getUsers():Observable<any[]> {
+    
+      let url = this.apiUrl +'users';
+    
+      return this.http.get(url, {headers: this.headers}).map(res => res.json());    
+  }
+
+  setAssignTo(s:string,u:string){
+
+    this.services[parseInt(s)].assignTo=u;
+    this.http.post('http://localhost:4201/assignto', {"id":s,"username":u}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      console.log(data);        
+    });
   }
 
 

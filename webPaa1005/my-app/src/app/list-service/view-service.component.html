@@ -41,8 +41,8 @@
       <div class="card-body">
           {{offer.description}}
           <div class="pull-right">
-            <button class="btn btn-success"><i class="fa fa-check"></i></button>&nbsp;
-            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+            <button class="btn btn-default" (click)="taskSelected(this.id)"><i class="fa fa-check"></i></button>&nbsp;
+            <button class="btn btn-times"><i class="fa fa-times"></i></button>
           </div>    
       </div>
     </div>

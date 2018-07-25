@@ -60,7 +60,19 @@ app.post('/registration',function(req,res){
 
   console.log(req.body);
   dba.setRegistration(req.body);
-});  
+});
+
+app.get('/users',function(req,res){
+  dba.getUsers(req.body,function(data){
+    res.send(data);
+  });
+})
+
+app.post('/assignto',function(req,res){
+  
+    
+    dba.setAssignTo(req.body); 
+});
 
 app.listen(4201, function(){
   console.log("Listening from 4201...");

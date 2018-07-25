@@ -116,9 +116,24 @@ module.exports = function(){
         });
   }
 
-
-
+  function setAssignTo(assignto,callback){
     
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/proyectofinal";
+
+    MongoClient.connect(url, function(err, db) {
+      
+            if (err) throw err;
+            db.collection("services").updateOne({"id":parseInt(assignto.id)},{"$set":{"assignTo":assignto.username}}, function(err, res) {
+            
+              if (err) throw err;
+              console.log("1 record updated");
+              db.close();
+        
+            });      
+    });
+  }
+
   return{
     
     getServices: getServices,
@@ -127,7 +142,8 @@ module.exports = function(){
     setSuggestions: setSuggestions,
     removeSuggestions: removeSuggestions,
     getUsers: getUsers,
-    setRegistration: setRegistration
+    setRegistration: setRegistration,
+    setAssignTo: setAssignTo
   }
       
 }      
