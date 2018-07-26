@@ -120,5 +120,13 @@ export class RestDataSource{
     });
   }
 
+  sendEmail(){
+
+    this.http.post('http://localhost:4202/sendemail', {"id":"123","username":"joseperez"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+          
+      console.log('done');
+    });
+  }
+
 
 }

@@ -58,12 +58,21 @@ app.post('/authentication',function(req,res){
 
 app.post('/registration',function(req,res){
 
-  console.log(req.body);
+  
   dba.setRegistration(req.body);
 });
 
-app.get('/users',function(req,res){
-  dba.getUsers(req.body,function(data){
+app.post('/getusers',function(req,res){
+  var user = req.body;  
+  dba.getEachUsers({"username":user.username},function(data){        
+    res.send(data);
+  });
+});
+
+app.post('/setusers',function(req,res){  
+  var user = req.body;  
+  
+  dba.setUpdatedRegistration({"username":user.username,"password":user.password},function(data){        
     res.send(data);
   });
 })

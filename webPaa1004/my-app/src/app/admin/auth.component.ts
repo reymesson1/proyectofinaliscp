@@ -19,7 +19,7 @@ export class AuthComponent{
   authenticate(form: NgForm){    
     this.data.username=this.username;
     this.data.password=this.password;
-    this.router.navigateByUrl("/add");
+    this.router.navigateByUrl("/home");
   }
 
 }

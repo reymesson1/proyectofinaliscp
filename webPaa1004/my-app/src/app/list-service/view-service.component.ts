@@ -27,6 +27,8 @@ export class ViewServiceComponent {
 
   public services: any[] = [];
   public count = 0;
+
+  newOffer : Object = new Object();
     
   constructor(private route: ActivatedRoute, private data: RestDataSource){
 
@@ -53,6 +55,13 @@ export class ViewServiceComponent {
     this.notes = this.complexTitle[0].notes;    
     this.price = this.complexTitle[0].price;
 
+    Object.assign(this.newOffer,{
+      "id" : "0",
+      "title" : this.data.username,
+      "description" : "description10",
+      
+    })
+
   }
 
   ngOnInit(){
@@ -70,7 +79,10 @@ export class ViewServiceComponent {
     }    
   }
 
-  newOffer : Object = new Object();
+  
+
+  
+  
   newSuggestion: Suggestion = new Suggestion();
 
   addOffer(o){

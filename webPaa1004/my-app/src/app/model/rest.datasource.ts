@@ -15,6 +15,7 @@ export class RestDataSource{
   authenticated: boolean = false;
   username :string;   
   password: string;
+  isValidatedUser: any[] = [];
   
   apiUrl = 'http://localhost:4201/';
   headers: Headers = new Headers({'Content-Type': 'application/json'})
@@ -107,11 +108,15 @@ export class RestDataSource{
 
   }
 
-  getUsers():Observable<any[]> {
-    
-      let url = this.apiUrl +'users';
-    
-      return this.http.get(url, {headers: this.headers}).map(res => res.json());    
+  getUsers(){
+
+    this.http.post('http://localhost:4201/getusers', {"username":this.username}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+          
+      this.isValidatedUser = data;
+    });
+
+    return this.isValidatedUser;
+        
   }
 
   setAssignTo(s:string,u:string){
@@ -120,6 +125,24 @@ export class RestDataSource{
     this.http.post('http://localhost:4201/assignto', {"id":s,"username":u}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       console.log(data);        
     });
+  }
+
+  setUpdateRegistration(u:string,p:string){
+
+    this.http.post('http://localhost:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+          
+      console.log('done');
+    });
+        
+  }
+
+  sendEmail(){
+
+    this.http.post('http://localhost:4202/sendemail', {"id":"123","username":"joseperez"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+          
+      console.log('done');
+    });
+
   }
 
 
