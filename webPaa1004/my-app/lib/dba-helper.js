@@ -91,7 +91,7 @@ module.exports = function(){
         var url = "mongodb://localhost:27017/proyectofinal";
         MongoClient.connect(url, function(err, db) {
                   if (err) throw err;        
-                    db.collection("users").find({"username":user.username,"password":user.password}).toArray(function(err,result){            
+                    db.collection("users").find({"username":user.username,"password":user.password,"status":"Active"}).toArray(function(err,result){            
                         callback(result);   
               })        
               db.close();
@@ -165,6 +165,51 @@ module.exports = function(){
     });
   }
 
+  function forgot(user,callback){ 
+    
+        var MongoClient = require('mongodb').MongoClient;
+        var url = "mongodb://localhost:27017/proyectofinal";
+        MongoClient.connect(url, function(err, db) {
+                  if (err) throw err;        
+                    db.collection("users").find({"email":user.email}).toArray(function(err,result){            
+                        callback(result);   
+              })        
+              db.close();
+       });    
+  }
+
+  function getAllUsers(user,callback){ 
+    
+        var MongoClient = require('mongodb').MongoClient;
+        var url = "mongodb://localhost:27017/proyectofinal";
+        MongoClient.connect(url, function(err, db) {
+                  if (err) throw err;        
+                    db.collection("users").find({}).toArray(function(err,result){            
+                        callback(result);   
+              })        
+              db.close();
+       });    
+  }
+
+  function disableUser(user,callback){
+
+        
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/proyectofinal";
+
+    MongoClient.connect(url, function(err, db) {
+      
+            if (err) throw err;
+            db.collection("users").updateOne({"id":user.id},{"$set":{"status":user.status}}, function(err, res) {
+            
+              if (err) throw err;
+              console.log("1 record updated");
+              db.close();
+        
+            });      
+    });
+  }
+
   return{
     
     getServices: getServices,
@@ -176,7 +221,10 @@ module.exports = function(){
     setRegistration: setRegistration,
     setAssignTo: setAssignTo,
     getEachUsers: getEachUsers,
-    setUpdatedRegistration: setUpdatedRegistration
+    setUpdatedRegistration: setUpdatedRegistration,
+    forgot: forgot,
+    getAllUsers: getAllUsers,
+    disableUser: disableUser
   }
       
 }      

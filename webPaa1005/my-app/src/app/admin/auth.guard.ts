@@ -13,7 +13,7 @@ export class AuthGuard {
 
   canActivate(route: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): boolean {
-
+        
        if(this.data.getAuthentication(new User("0",this.data.username,this.data.password))){
         return true;
        }else{

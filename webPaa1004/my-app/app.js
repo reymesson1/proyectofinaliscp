@@ -83,6 +83,30 @@ app.post('/assignto',function(req,res){
     dba.setAssignTo(req.body); 
 });
 
+app.post('/forgotpassword',function(req,res){
+   
+   dba.forgot(req.body,function(data){        
+    res.send(data);
+  });
+});
+
+app.get('/users', function(req,res){
+  
+     dba.getAllUsers({}, function(data){
+   
+       res.send(data);        
+ 
+     });
+});
+
+app.post('/statususer',function(req,res){
+  
+  
+  dba.disableUser(req.body);
+  res.send(req.body);
+});
+
+
 app.listen(4201, function(){
   console.log("Listening from 4201...");
 });

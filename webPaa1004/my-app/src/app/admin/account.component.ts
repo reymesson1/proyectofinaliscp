@@ -3,7 +3,6 @@ import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { RestDataSource } from "../model/rest.datasource";
 import { User } from "../model/user.model";
-import { userInfo } from "os";
 
 @Component({
     selector: 'account',
@@ -29,7 +28,8 @@ export class AccountComponent{
         "username" : this.data.isValidatedUser[0].username,
         "password" : this.data.isValidatedUser[0].password,
         "firstname" : this.data.isValidatedUser[0].firstname,
-        "lastname" : this.data.isValidatedUser[0].lastname
+        "lastname" : this.data.isValidatedUser[0].lastname,
+        "type" : this.data.isValidatedUser[0].type
       })
     }
 

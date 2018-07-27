@@ -11,7 +11,7 @@ import { User } from "./user.model";
 @Injectable()
 export class RestDataSource{
 
-  services: any = [];
+  services: any = [];  
   authenticated: boolean = false;
   username :string;   
   password: string;
@@ -26,6 +26,9 @@ export class RestDataSource{
       
       this.services = data;
     },(err)=>{console.log(err)});
+
+    console.log(this.getUsers()); 
+
   }
   
   ngOnInit(){
@@ -101,7 +104,7 @@ export class RestDataSource{
 
   setRegistration(u:User){
 
-    this.http.post('http://localhost:4201/registration', new User("0",u.username,u.password,u.firstname,u.lastname), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    this.http.post('http://localhost:4201/registration', new User(u.id,u.username,u.password,u.firstname,u.lastname,u.type,u.status,u.email), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       console.log(data);        
     });
 
@@ -129,6 +132,7 @@ export class RestDataSource{
 
   setUpdateRegistration(u:string,p:string){
 
+    
     this.http.post('http://localhost:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
       console.log('done');
@@ -137,13 +141,55 @@ export class RestDataSource{
   }
 
   sendEmail(){
-
+    this.sendEmail();
     this.http.post('http://localhost:4202/sendemail', {"id":"123","username":"joseperez"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
       console.log('done');
     });
 
   }
+
+  forgotPassword(email:string){
+
+    let password = "data";
+
+    this.http.post('http://localhost:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+          
+      console.log(data[0].password);
+      password=data[0].password;
+      this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+            
+        console.log('done'); 
+      });
+
+    });
+
+  }
+
+  getAllUsers():Observable<any> {
+    let url = this.apiUrl +'users';
+	  return this.http.get(url, {headers: this.headers}).map(res => res.json());
+  }
+
+  disableUser(s:string){
+
+    this.http.post('http://localhost:4201/statususer', {"id":s,"status":"inactive"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+          
+      console.log('done');
+    });
+
+    console.log('disable');
+  }  
+
+  ableUser(s:string){
+    
+    this.http.post('http://localhost:4201/statususer', {"id":s,"status":"Active"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+          
+      console.log('done');
+    });
+
+    console.log('able');
+  }  
 
 
 }

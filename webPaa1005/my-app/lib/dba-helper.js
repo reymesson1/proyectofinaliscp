@@ -134,6 +134,50 @@ module.exports = function(){
       });
     }
 
+    function getEachUsers(user,callback){ 
+      
+          var MongoClient = require('mongodb').MongoClient;
+          var url = "mongodb://localhost:27017/proyectofinal";
+          MongoClient.connect(url, function(err, db) {
+                    if (err) throw err;        
+                      db.collection("users").find({"username":user.username}).toArray(function(err,result){            
+                          callback(result);   
+                })        
+                db.close();
+         });    
+    }
+  
+    function setUpdatedRegistration(user,callback){
+      
+      var MongoClient = require('mongodb').MongoClient;
+      var url = "mongodb://localhost:27017/proyectofinal";
+  
+      MongoClient.connect(url, function(err, db) {
+        
+              if (err) throw err;
+              db.collection("users").updateOne({"username":user.username},{"$set":{"password":user.password}}, function(err, res) {
+              
+                if (err) throw err;
+                console.log("1 record updated");
+                db.close();
+          
+              });      
+      });
+    }
+  
+    function forgot(user,callback){ 
+      
+          var MongoClient = require('mongodb').MongoClient;
+          var url = "mongodb://localhost:27017/proyectofinal";
+          MongoClient.connect(url, function(err, db) {
+                    if (err) throw err;        
+                      db.collection("users").find({"email":user.email}).toArray(function(err,result){            
+                          callback(result);   
+                })        
+                db.close();
+         });    
+    }
+
   
       
     return{
@@ -144,7 +188,10 @@ module.exports = function(){
       setSuggestions: setSuggestions,
       getUsers: getUsers,
       setRegistration: setRegistration,
-      setAssignTo: setAssignTo
+      setAssignTo: setAssignTo,
+      getEachUsers: getEachUsers,
+      setUpdatedRegistration: setUpdatedRegistration,
+      forgot: forgot
   
     }
         

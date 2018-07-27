@@ -46,6 +46,30 @@ app.post('/sendemail', function (req, res) {
 
 });
 
+app.post('/sendpassword', function (req, res) {
+  
+    var user = req.body;
+    var email = user.email;
+    var password = user.password;
+  
+    app.mailer.send('email', {
+      to: email, // REQUIRED. This can be a comma delimited string just like a normal email to field. 
+      subject: 'Your password from subasta.com.do', // REQUIRED.
+      otherProperty: password, // All additional properties are also passed to the template as local variables.
+      otherDetail: 'Other Detail' // All additional properties are also passed to the template as local variables.
+      }, function (err) {
+      if (err) {
+        // handle error
+        console.log(err);
+        res.send('There was an error sending the email');
+        return;      
+      }
+      res.send('Email Sent');      
+    });
+  
+    
+  });
+
 app.listen(4202, function(){
   console.log("Listening from 4202...");
 });

@@ -68,11 +68,33 @@ app.get('/users',function(req,res){
   });
 })
 
+app.post('/getusers',function(req,res){
+  var user = req.body;  
+  dba.getEachUsers({"username":user.username},function(data){        
+    res.send(data);
+  });
+});
+
+app.post('/setusers',function(req,res){  
+  var user = req.body;  
+  
+  dba.setUpdatedRegistration({"username":user.username,"password":user.password},function(data){        
+    res.send(data);
+  });
+})
+
+
 app.post('/assignto',function(req,res){
     
   dba.setAssignTo(req.body); 
 });
 
+app.post('/forgotpassword',function(req,res){
+  
+  dba.forgot(req.body,function(data){        
+   res.send(data);
+ });
+});
 
 app.listen(4201, function(){
   console.log("Listening from 4201...");

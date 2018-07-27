@@ -7,7 +7,7 @@
                                                     <div class="panel-heading">
                                                             <div class="row">
                                                                     <div class="col-xs-3">
-                                                                            <i class="fa fa-thumbs-up fa-5x"></i>
+                                                                            <i class="fa fa-user fa-5x"></i>
                                                                     </div>
                                                                     <div class="col-xs-9 text-right">
                                                                             <div class="huge">12</div>
@@ -27,7 +27,6 @@
     </div>
 </div>
 </div>  
-
 <div class="row">                
     <div class="pull-right">
             <div class="col-md-8 col-sm-2">
@@ -41,8 +40,8 @@
   <ul class="nav nav-tabs">
           <li><a routerLink="/home">Service</a></li>
           <li><a routerLink="/offer">Offers</a></li>
-          <li class="active"><a routerLink="/suggestion">Suggestions</a></li>                
-          <li><a routerLink="/users">Users</a></li>
+          <li ><a routerLink="/suggestion">Suggestions</a></li>                
+          <li class="active"><a routerLink="/users">Users</a></li>                
   </ul>
 </div> 
 
@@ -52,24 +51,26 @@
         <tr>
           <th>ID</th>
           <th>Date</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Category</th>
-          <th>Notes</th>
-          <th>User</th>
-          <th>Actions</th>
+          <th>Username</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Email</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let service of filteredData">
-                  <td>{{service.id}}</td>
-                  <td>{{service.date}}</td>                                
-                  <td>{{service.title}}</td>                                                                
-                  <td>{{service.description}}</td>                                                                
-                  <td>{{service.category}}</td>                                                                                                                                
-                  <td>{{service.notes}}</td>
-                  <td>{{service.user}}</td>                                                                                                
-                  <td>&nbsp;&nbsp;<i class="fa fa-edit" routerLink="/edit/{{service.id}}" ></i> &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" (click)="delete(service.id)"></i></td>
+          <tr *ngFor="let user of filteredData">
+                  <td>{{user.id}}</td>                                                                                  
+                  <td>{{""}}</td>                                                                                  
+                  <td>{{user.username}}</td>                                                                                  
+                  <td>{{user.firstname}}</td>                                                                                  
+                  <td>{{user.lastname}}</td>                                                                                  
+                  <td>{{user.type}}</td>                                                                                  
+                  <td>{{user.status}}</td>                                                                                  
+                  <td>{{user.email}}</td>                                                                                  
+                  <td>&nbsp;&nbsp;<i class="fa fa-check" (click)="able(user.id)" ></i>&nbsp;&nbsp;<i class="fa fa-times" (click)="disable(user.id)" ></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-edit" routerLink="/edit/{{user.id}}" ></i> &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" (click)="delete(user.id)"></i></td>
           </tr>                        
       </tbody>  
     </table>

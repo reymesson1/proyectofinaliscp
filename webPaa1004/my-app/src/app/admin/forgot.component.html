@@ -1,0 +1,19 @@
+<div class="bg-default p-a-1 text-xs-center">
+  <h3>Forgot you r Account </h3>
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+  Check your email!
+</div>
+<div class="p-a-1">
+  <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
+      <div class="form-group">
+          <label>Enter your email address</label>
+          <input class="form-control" type="email" name="email" 
+              [(ngModel)]="email" required />
+      </div>
+      <div class="text-xs-center">
+          <button class="btn btn-secondary" routerLink="/home">Go back</button> &nbsp;
+          <button class="btn btn-primary" type="submit">Enter</button>&nbsp;&nbsp;                
+      </div>
+  </form>
+</div>

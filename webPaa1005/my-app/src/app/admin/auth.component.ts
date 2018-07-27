@@ -14,16 +14,15 @@ export class AuthComponent{
   public password: string;
   public errorMessage: string;
 
-  public isWrong : boolean = true;
-
+  
   constructor(private router :Router,private data: RestDataSource){
   }
 
   authenticate(form: NgForm){    
     this.data.username=this.username;
     this.data.password=this.password;
-    this.router.navigateByUrl("/add");
-    this.isWrong = this.data.authenticated; 
+    this.router.navigateByUrl("/home");
+    
     
   }
 

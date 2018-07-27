@@ -15,7 +15,7 @@ export class RestDataSource{
   authenticated: boolean = false;
   username :string;   
   password: string;
-  
+  isValidatedUser: any[] = [];
 
   apiUrl = 'http://localhost:4201/';
   headers: Headers = new Headers({'Content-Type': 'application/json'})
@@ -100,16 +100,20 @@ export class RestDataSource{
 
   setRegistration(u:User){
 
-    this.http.post('http://localhost:4201/registration', new User("0",u.username,u.password,u.firstname,u.lastname), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    this.http.post('http://localhost:4201/registration', new User("0",u.username,u.password,u.firstname,u.lastname,u.type,u.status,u.email), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       console.log(data);        
     });
   }
     
-  getUsers():Observable<any[]> {
+  getUsers(){
+    
+      this.http.post('http://localhost:4201/getusers', {"username":this.username}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+            
+        this.isValidatedUser = data;
+      });
   
-    let url = this.apiUrl +'users';
-  
-    return this.http.get(url, {headers: this.headers}).map(res => res.json());    
+      return this.isValidatedUser;
+          
   }
 
   setAssignTo(s:string,u:string){
@@ -120,12 +124,38 @@ export class RestDataSource{
     });
   }
 
+  setUpdateRegistration(u:string,p:string){
+    
+        this.http.post('http://localhost:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+              
+          console.log('done');
+        });
+            
+  }
+
   sendEmail(){
 
     this.http.post('http://localhost:4202/sendemail', {"id":"123","username":"joseperez"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
       console.log('done');
     });
+  }
+
+  forgotPassword(email:string){
+    
+    let password = "data";
+
+    this.http.post('http://localhost:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+          
+      console.log(data[0].password);
+      password=data[0].password;
+      this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+            
+        console.log('done'); 
+      });
+
+    });
+
   }
 
 
