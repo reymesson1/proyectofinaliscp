@@ -28,12 +28,16 @@ import { AccountComponent } from "./admin/account.component";
 
 import { ForgotComponent } from "./admin/forgot.component";
 
+import { ValidationComponent } from "./admin/validation.component";
+
 @NgModule({
   declarations: [
-    HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent, ForgotComponent
+    HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent, ForgotComponent, ValidationComponent
   ],
   imports: [
     HttpModule,FormsModule, ReactiveFormsModule,BrowserModule, RouterModule.forRoot([
+      { path: "validation", component: ValidationComponent },    
+      { path: "validation/:id", component: ValidationComponent },    
       { path: "account", component: AccountComponent, canActivate: [AuthGuard] },  
       { path: "forgot", component: ForgotComponent },    
       { path: "registration", component: RegistrationComponent },      
@@ -55,6 +59,6 @@ import { ForgotComponent } from "./admin/forgot.component";
       { path: "**", redirectTo: "/home" }
     ])],
   providers: [RestDataSource,AuthGuard],
-  bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent, ForgotComponent]
+  bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent, ForgotComponent, ValidationComponent]
 })
 export class AppModule { }

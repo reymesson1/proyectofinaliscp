@@ -100,7 +100,7 @@ export class RestDataSource{
 
   setRegistration(u:User){
 
-    this.http.post('http://localhost:4201/registration', new User("0",u.username,u.password,u.firstname,u.lastname,u.type,u.status,u.email), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    this.http.post('http://localhost:4201/registration', new User(u.id,u.username,u.password,u.firstname,u.lastname,u.type,u.status,u.email), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       console.log(data);        
     });
   }
@@ -148,12 +148,26 @@ export class RestDataSource{
     this.http.post('http://localhost:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
       console.log(data[0].password);
-      password=data[0].password;
+      password="http://localhost:4200/validation/"+data[0].username;
       this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             
         console.log('done'); 
       });
 
+    });
+
+  }
+
+  getAllUsers():Observable<any> {
+    let url = this.apiUrl +'allusers';
+	  return this.http.get(url, {headers: this.headers}).map(res => res.json());
+  }
+
+  validate(u:string,p:string){
+
+    this.http.post('http://localhost:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+              
+      console.log('done');
     });
 
   }

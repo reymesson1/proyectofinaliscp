@@ -19,17 +19,24 @@ export class RegistrationComponent{
   public type: string;
   public status: string;
   public errorMessage: string;
+  public users: any[] = [];
+
 
   constructor(private router :Router,private data: RestDataSource){
 
-    this.status = "Active";    
+    this.status = "pending"; 
+    
+    this.data.getAllUsers().subscribe(data=>{            
+      this.users = data;      
+    });
 
   }
 
   authenticate(form: NgForm){    
 
+    let quantity = this.users.length;
 
-    this.data.setRegistration(new User("0",this.username,this.password,this.firstname,this.lastname,this.type,this.status,this.email));
+    this.data.setRegistration(new User(quantity.toString(),this.username,this.password,this.firstname,this.lastname,this.type,this.status,this.email));
   }
 
 }

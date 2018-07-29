@@ -51,4 +51,9 @@ export class UsersComponent{
         this.data.ableUser(s);        
     }
 
+    delete(s:string){
+
+        console.log(s);
+    }
+
 }

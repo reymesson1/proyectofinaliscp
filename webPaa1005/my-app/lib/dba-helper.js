@@ -178,6 +178,18 @@ module.exports = function(){
          });    
     }
 
+    function getAllUsers(user,callback){ 
+    
+          var MongoClient = require('mongodb').MongoClient;
+          var url = "mongodb://localhost:27017/proyectofinal";
+          MongoClient.connect(url, function(err, db) {
+                    if (err) throw err;        
+                      db.collection("users").find({}).toArray(function(err,result){            
+                          callback(result);   
+                })        
+                db.close();
+        });    
+    } 
   
       
     return{
@@ -191,7 +203,8 @@ module.exports = function(){
       setAssignTo: setAssignTo,
       getEachUsers: getEachUsers,
       setUpdatedRegistration: setUpdatedRegistration,
-      forgot: forgot
+      forgot: forgot,
+      getAllUsers: getAllUsers
   
     }
         

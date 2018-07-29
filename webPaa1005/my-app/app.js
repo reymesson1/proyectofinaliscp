@@ -96,6 +96,26 @@ app.post('/forgotpassword',function(req,res){
  });
 });
 
+app.get('/allusers', function(req,res){
+
+  console.log('si');
+  
+  dba.getAllUsers({}, function(data){
+
+    res.send(data);        
+
+  });
+});
+
+app.post('/validate',function(req,res){
+
+  var user = req.body;
+
+  dba.setUpdatedRegistration({"username":user.username,"password":user.password},function(data){        
+    res.send(data);
+  });
+});
+
 app.listen(4201, function(){
   console.log("Listening from 4201...");
 });
