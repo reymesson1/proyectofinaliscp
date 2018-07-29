@@ -12,7 +12,7 @@ import { User} from "../model/user.model";
 export class RestDataSource{
 
   services: any = [];
-  authenticated: boolean = false;
+  authenticated: object = {};
   username :string;   
   password: string;
   isValidatedUser: any[] = [];
@@ -147,7 +147,6 @@ export class RestDataSource{
 
     this.http.post('http://localhost:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
-      console.log(data[0].password);
       password="http://localhost:4200/validation/"+data[0].username;
       this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             

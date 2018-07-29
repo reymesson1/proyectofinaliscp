@@ -45,13 +45,25 @@ app.post('/removesuggestions',function(req,res){
   console.log(req.body);    
 });
 
+var tries = 0;
+
 app.post('/authentication',function(req,res){
+
+  var obj;
       
   dba.getUsers(req.body, function(data){        
     if(data.length==1){
-      res.send(true);          
+      tries=0;
+      obj = {"authenticated":true,"errorMessage":"Correct"};
+      res.send(obj);          
     }else{
-      res.send(false);          
+      tries++;
+      if(tries>3){
+        obj = {"authenticated":false,"errorMessage":"Your account is blocked!"};
+      }else{
+        obj = {"authenticated":false,"errorMessage":"Username or password are incorrect!"};
+      }
+      res.send(obj);          
     }
   });
 });  
@@ -97,8 +109,6 @@ app.post('/forgotpassword',function(req,res){
 });
 
 app.get('/allusers', function(req,res){
-
-  console.log('si');
   
   dba.getAllUsers({}, function(data){
 

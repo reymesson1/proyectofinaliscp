@@ -2,14 +2,10 @@
   <h3>Admin Account</h3>
 </div>
 
-<div class="alert alert-danger" *ngIf="!isWrong" role="alert">
-    Username or password are incorrect!
+<div class="alert alert-danger" *ngIf="errorMessage!=null" role="alert">
+    {{errorMessage}}
 </div>    
 
-<div class="bg-danger m-t-1 p-a-1 text-xs-center" 
-      *ngIf="errorMessage != null">
-  {{errorMessage}}
-</div>
 <div class="p-a-1">
   <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
       <div class="form-group">

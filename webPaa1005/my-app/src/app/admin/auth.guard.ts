@@ -13,8 +13,12 @@ export class AuthGuard {
 
   canActivate(route: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): boolean {
-        
-       if(this.data.getAuthentication(new User("0",this.data.username,this.data.password))){
+
+       let authenticated = this.data.getAuthentication(new User("0",this.data.username,this.data.password));
+
+       console.log(authenticated);
+
+       if(authenticated.authenticated){
         return true;
        }else{
         this.router.navigateByUrl('/admin');

@@ -16,14 +16,20 @@ export class AuthComponent{
 
   
   constructor(private router :Router,private data: RestDataSource){
+
+    this.errorMessage = this.data.authenticated.errorMessage;
   }
 
   authenticate(form: NgForm){    
     this.data.username=this.username;
     this.data.password=this.password;
-    this.router.navigateByUrl("/home");
-    
-    
+
+    if(this.data.authenticated.authenticated){
+      this.router.navigateByUrl("/home");    
+    }else{
+      this.errorMessage = this.data.authenticated.errorMessage;      
+    }
+
   }
 
 }
