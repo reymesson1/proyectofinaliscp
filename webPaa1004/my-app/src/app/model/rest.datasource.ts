@@ -175,20 +175,20 @@ export class RestDataSource{
 
     this.http.post('http://localhost:4204/statususer', {"id":s,"status":"inactive"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
-      console.log('done');
+      
     });
 
-    console.log('disable');
+    
   }  
 
   ableUser(s:string){
     
     this.http.post('http://localhost:4204/statususer', {"id":s,"status":"Active"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
-      console.log('done');
+      
     });
 
-    console.log('able');
+    
   }  
 
 

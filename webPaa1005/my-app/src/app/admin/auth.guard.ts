@@ -9,20 +9,22 @@ import { User } from "../model/user.model";
 @Injectable()
 export class AuthGuard {
 
+  authenticated : any = {};
+
   constructor(private router: Router, private data: RestDataSource) { }
 
   canActivate(route: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): boolean {
 
-       let authenticated = this.data.getAuthentication(new User("0",this.data.username,this.data.password));
+       this.authenticated = this.data.getAuthentication(new User("0",this.data.username,this.data.password));
 
-       console.log(authenticated);
+       console.log(this.authenticated);
 
-       if(authenticated.authenticated){
+       if(this.authenticated.authenticated){
         return true;
        }else{
         this.router.navigateByUrl('/admin');
-        return false;
+       return false;
       }
 
   }

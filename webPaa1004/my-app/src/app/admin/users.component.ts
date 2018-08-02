@@ -29,7 +29,7 @@ export class UsersComponent{
     ngOnInit(){
     
         this.data.getAllUsers().subscribe(data=>{
-          console.log(data);
+          
           this.filteredData = data;
         },(err)=>{console.log(err)});
     }
@@ -43,10 +43,14 @@ export class UsersComponent{
 
     disable(s:string){
 
+        this.filteredData[s].status = 'inactive'
+
         this.data.disableUser(s);        
     }
 
     able(s:string){
+        
+        this.filteredData[s].status = 'Active'
 
         this.data.ableUser(s);        
     }

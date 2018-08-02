@@ -12,7 +12,7 @@ import { User} from "../model/user.model";
 export class RestDataSource{
 
   services: any = [];
-  authenticated: object = {};
+  authenticated: any = {};
   username :string;   
   password: string;
   isValidatedUser: any[] = [];
