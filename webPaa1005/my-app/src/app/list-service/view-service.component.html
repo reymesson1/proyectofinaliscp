@@ -4,9 +4,13 @@
     <li class="breadcrumb-item" aria-current="page">View Service</li>
   </ol>
 </nav>
-    
+     
 <div class="card">
-  <img class="card-img-top" src="//placehold.it/520x150" alt="Card image cap">
+  
+  <img class="card-img-top" *ngIf="category=='Washing'" src="/assets/washing.png" alt="Card image cap">
+  <img class="card-img-top" *ngIf="category=='Cook'" src="/assets/cook.png" alt="Card image cap">
+  <img class="card-img-top" *ngIf="category=='Gardening'" src="/assets/gardening.png" alt="Card image cap">
+  
   <div class="card-body">
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text">{{description}}</p>
@@ -17,12 +21,6 @@
     <li class="list-group-item">Notes: {{notes}}</li>
     <li class="list-group-item">Price: {{price}}</li>
   </ul>
-  <div class="card-body">
-    <button class="btn btn-default" *ngIf="!isTrue" (click)="addSuggestion({'id':'1','title':'title1'})" ><i class="fa fa-star"></i></button>
-    <button class="btn btn-primary" *ngIf="isTrue" (click)="addSuggestion({'id':'1','title':'title1'})" ><i class="fa fa-star"></i></button>
-    <a href="#" class="card-link"></a>
-    <a href="#" class="card-link"></a>
-  </div>
 </div>
 
 <br/>
@@ -39,8 +37,13 @@
 
     <div id="collapse{{i}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-          {{offer.description}}
+          <button class="btn btn-default" (click)="addSuggestion({'id':'1','suggester':'joseperez','user':'juanperez'})" ><i class="fa fa-star"></i></button>
+          &nbsp;&nbsp;
+          <label>{{count}}</label>          
+          &nbsp;
+          <label>suggest</label>
           <div class="pull-right">
+            <label>Accept:&nbsp;&nbsp;</label>
             <button class="btn btn-default" (click)="taskSelected(this.id)"><i class="fa fa-check"></i></button>&nbsp;
             <button class="btn btn-times"><i class="fa fa-times"></i></button>
           </div>    

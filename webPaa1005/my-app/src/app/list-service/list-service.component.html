@@ -13,7 +13,9 @@
         <div class="row">
                 <div class="col-lg-4" *ngFor="let service of filteredData;let i = index" >
                 <div class="card">
-                <img class="card-img-top" src="//placehold.it/720x350" alt="Card image cap">
+                <img class="card-img-top" *ngIf="service.category=='Cook'" src="/assets/cook.png" alt="Card image cap">
+                <img class="card-img-top" *ngIf="service.category=='Washing'" src="/assets/washing.png" alt="Card image cap">
+                <img class="card-img-top" *ngIf="service.category=='Gardening'" src="/assets/gardening.png" alt="Card image cap">
                                 <div class="card-block">
                                         <h4 class="card-title">{{service.title}}</h4>
                                         <p class="card-text">{{service.description}}</p>

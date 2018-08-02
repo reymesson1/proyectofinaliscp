@@ -23,12 +23,13 @@ export class ViewServiceComponent {
   public category : string;
   public notes : string;
   public price : string;
+  public image : string;
 
   public services: any[] = [];
 
   public isTrue : boolean = false;
 
-  public count = 0;
+  public count : number = 0;
 
     
   constructor(private route: ActivatedRoute, private data: RestDataSource){
@@ -53,20 +54,19 @@ export class ViewServiceComponent {
     this.category = this.complexTitle[0].category;
     this.notes = this.complexTitle[0].notes;    
     this.price = this.complexTitle[0].price;
+    this.date = this.complexTitle[0].date;
+
+    
 
   }
 
   ngOnInit(){
 
     for(let x=0;x<this.data.services.length;x++){
+            
+      if(this.data.services[x].suggestions){
 
-      if(this.data.services[x].suggestions!=undefined){
-
-        if(parseInt( Math.round((2/this.data.services[x].suggestions.length)*100).toFixed(2) )){
-          
-          this.count = parseInt( Math.round((2/this.data.services[x].suggestions.length)*100).toFixed(2) );           
-          console.log(this.count);
-        }
+        this.count+=this.data.services[x].suggestions.length;
       }
     }
 
@@ -92,9 +92,14 @@ export class ViewServiceComponent {
     }else{
       this.toggle = true;
       this.data.addSuggestion(s,this.id);
-      this.newSuggestion = new Object();    
-      console.log(this.data.services[this.id]);
+      this.newSuggestion = new Object();
+      this.count+=1;    
+      
     }
+  }
+
+  addSuggestionbyUser(s:Suggestion){
+    console.log(s);
   }
 
   taskSelected(s:string){    

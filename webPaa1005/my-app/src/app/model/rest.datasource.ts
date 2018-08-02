@@ -18,7 +18,9 @@ export class RestDataSource{
   isValidatedUser: any[] = [];
 
   apiUrl = 'http://localhost:4201/';
-  headers: Headers = new Headers({'Content-Type': 'application/json'})
+  headers: Headers = new Headers({'Content-Type': 'application/json'});
+
+  public today : Date;
 
   constructor(private http: Http){
     this.getInformation().subscribe(data=>{
@@ -39,10 +41,12 @@ export class RestDataSource{
 
     let quantity = this.services.length;
 
+    this.today = new Date();
+    
     //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[]));
-    this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[],""));      
+    this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[],"",this.today.toLocaleString()), s.price);      
 
-    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,this.username,[],[],""), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,this.username,[],[],"",this.today.toLocaleString(),s.price), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
     
       console.log('Added successfully');
     });

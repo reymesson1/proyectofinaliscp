@@ -11,7 +11,7 @@ import { RestDataSource } from '../model/rest.datasource';
   templateUrl: './add-service.component.html',
   styleUrls: ['./add-service.component.css']
 })
-export class AddServiceComponent {
+export class AddServiceComponent {  
 
   title = 'Add Service';
 

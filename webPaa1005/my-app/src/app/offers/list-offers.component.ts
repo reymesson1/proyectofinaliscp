@@ -14,19 +14,23 @@ export class OfferComponent {
   offers: any[] = [];
 
   constructor(private data: RestDataSource, private route: ActivatedRoute){
-        
-    for(let x=0;x<this.data.services.length;x++){
+
+    if(this.data.username){
       
-      if(this.data.services[x].offers!=undefined){
+      for(let x=0;x<this.data.services.length;x++){
         
-        for(let y=0;y<this.data.services[x].offers.length;y++){
+        if(this.data.services[x].offers!=undefined&&this.data.services[x].user==this.data.username){
           
-          this.offers.push(this.data.services[x].offers[y]);
+          for(let y=0;y<this.data.services[x].offers.length;y++){
+            
+            this.offers.push(this.data.services[x].offers[y]);
+          }
         }
       }
-    }
-
+    }      
+      
     this.filteredData = this.offers;
+
   }
 
   ngOnInit(){

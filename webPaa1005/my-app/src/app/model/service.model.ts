@@ -1,7 +1,7 @@
 export class Service{
 
   constructor(
-    public id?: string,
+    public id?: string,    
     public title?: string,
     public description?: string,
     public category?: string,
@@ -9,7 +9,9 @@ export class Service{
     public user?: string,
     public offers?:any[],
     public suggestions?:any[],
-    public assignTo?: string
+    public assignTo?: string,
+    public date?: string,
+    public price?: string
   ){
-  }
+  } 
 }
