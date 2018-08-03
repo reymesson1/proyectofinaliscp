@@ -1419,7 +1419,8 @@ var RestDataSource = /** @class */ (function () {
         this.services = [];
         this.authenticated = {};
         this.isValidatedUser = [];
-        this.apiUrl = 'http://localhost:4201/';
+        //apiUrl = 'http://localhost:4201/';
+        this.apiUrl = 'http://159.203.156.208:4201/';
         this.headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({ 'Content-Type': 'application/json' });
         this.getInformation().subscribe(function (data) {
             _this.services = data;
@@ -1437,27 +1438,27 @@ var RestDataSource = /** @class */ (function () {
         this.today = new Date();
         //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[]));
         this.services.push(new _service_model__WEBPACK_IMPORTED_MODULE_5__["Service"](quantity, s.title, s.description, s.category, s.notes, s.user, [], [], "", this.today.toLocaleString()), s.price);
-        this.http.post('http://localhost:4201/addservices', new _service_model__WEBPACK_IMPORTED_MODULE_5__["Service"](quantity, s.title, s.description, s.category, s.notes, this.username, [], [], "", this.today.toLocaleString(), s.price), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/addservices', new _service_model__WEBPACK_IMPORTED_MODULE_5__["Service"](quantity, s.title, s.description, s.category, s.notes, this.username, [], [], "", this.today.toLocaleString(), s.price), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log('Added successfully');
         });
     };
     RestDataSource.prototype.addOffer = function (o, quantity) {
         //this.services[quantity].offers.push(new Offer("1",o.title,o.description));    
         var _this = this;
-        this.http.post('http://localhost:4201/updateoffers', new _offer_model__WEBPACK_IMPORTED_MODULE_6__["Offer"](quantity, o.title, o.description), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/updateoffers', new _offer_model__WEBPACK_IMPORTED_MODULE_6__["Offer"](quantity, o.title, o.description), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             _this.services[parseInt(quantity)].offers.push(new _offer_model__WEBPACK_IMPORTED_MODULE_6__["Offer"](quantity, o.title, o.description));
         });
     };
     RestDataSource.prototype.addSuggestion = function (s, quantity) {
         var _this = this;
         //this.services[quantity].suggestions.push(new Suggestion("1",s.id));
-        this.http.post('http://localhost:4201/updatesuggestions', new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](quantity, s.comments, s.user), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/updatesuggestions', new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](quantity, s.comments, s.user), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             _this.services[quantity].suggestions.push(new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](quantity, s.comments, s.user));
         });
     };
     RestDataSource.prototype.removeSuggestion = function (s, id) {
         var index = this.services.findIndex(function (line) { return line.id == id; });
-        this.http.post('http://localhost:4201/removesuggestions', new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](index, s.comments, s.user), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/removesuggestions', new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](index, s.comments, s.user), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log(new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](index, s.comments, s.user));
             //this.services[index].suggestions.push(new Suggestion("1",s.comments,s.user));      
         });
@@ -1468,45 +1469,45 @@ var RestDataSource = /** @class */ (function () {
     };
     RestDataSource.prototype.getAuthentication = function (u) {
         var _this = this;
-        this.http.post('http://localhost:4201/authentication', new _model_user_model__WEBPACK_IMPORTED_MODULE_8__["User"]("0", this.username, this.password), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/authentication', new _model_user_model__WEBPACK_IMPORTED_MODULE_8__["User"]("0", this.username, this.password), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             _this.authenticated = data;
         });
         return this.authenticated;
     };
     RestDataSource.prototype.setRegistration = function (u) {
-        this.http.post('http://localhost:4201/registration', new _model_user_model__WEBPACK_IMPORTED_MODULE_8__["User"](u.id, u.username, u.password, u.firstname, u.lastname, u.type, u.status, u.email), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/registration', new _model_user_model__WEBPACK_IMPORTED_MODULE_8__["User"](u.id, u.username, u.password, u.firstname, u.lastname, u.type, u.status, u.email), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log(data);
         });
     };
     RestDataSource.prototype.getUsers = function () {
         var _this = this;
-        this.http.post('http://localhost:4201/getusers', { "username": this.username }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/getusers', { "username": this.username }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             _this.isValidatedUser = data;
         });
         return this.isValidatedUser;
     };
     RestDataSource.prototype.setAssignTo = function (s, u) {
         this.services[parseInt(s)].assignTo = u;
-        this.http.post('http://localhost:4201/assignto', { "id": s, "username": u }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/assignto', { "id": s, "username": u }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log(data);
         });
     };
     RestDataSource.prototype.setUpdateRegistration = function (u, p) {
-        this.http.post('http://localhost:4201/setusers', { "username": u, "password": p }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/setusers', { "username": u, "password": p }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log('done');
         });
     };
     RestDataSource.prototype.sendEmail = function () {
-        this.http.post('http://localhost:4202/sendemail', { "id": "123", "username": "joseperez" }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4202/sendemail', { "id": "123", "username": "joseperez" }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log('done');
         });
     };
     RestDataSource.prototype.forgotPassword = function (email) {
         var _this = this;
         var password = "data";
-        this.http.post('http://localhost:4201/forgotpassword', { "email": email }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
-            password = "http://localhost:4200/validation/" + data[0].username;
-            _this.http.post('http://localhost:4202/sendpassword', { "email": email, "password": password }, { headers: _this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/forgotpassword', { "email": email }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            password = "http://159.203.156.208:4205/validation/" + data[0].username;
+            _this.http.post('http://159.203.156.208:4202/sendpassword', { "email": email, "password": password }, { headers: _this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
                 console.log('done');
             });
         });
@@ -1516,7 +1517,7 @@ var RestDataSource = /** @class */ (function () {
         return this.http.get(url, { headers: this.headers }).map(function (res) { return res.json(); });
     };
     RestDataSource.prototype.validate = function (u, p) {
-        this.http.post('http://localhost:4201/setusers', { "username": u, "password": p }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http.post('http://159.203.156.208:4201/setusers', { "username": u, "password": p }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log('done');
         });
     };
