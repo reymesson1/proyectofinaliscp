@@ -23,35 +23,14 @@ import { AccountComponent } from "./admin/account.component";
 import { ForgotComponent } from "./admin/forgot.component";
 import { ValidationComponent } from "./admin/validation.component";
 import { MomentModule } from 'angular2-moment';
+import { RoutesModule } from './routes.module';
 
 @NgModule({
   declarations: [
     HomeComponent,AppComponent,ListServiceComponent,NavbarComponent, AddServiceComponent, EditServiceComponent, DeleteServiceComponent, OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent, ForgotComponent, ValidationComponent
   ],
   imports: [
-    HttpModule, MomentModule,FormsModule, ReactiveFormsModule,BrowserModule, RouterModule.forRoot([
-      { path: "validation", component: ValidationComponent },    
-      { path: "validation/:id", component: ValidationComponent },    
-      { path: "account", component: AccountComponent, canActivate: [AuthGuard] },  
-      { path: "forgot", component: ForgotComponent },    
-      { path: "registration", component: RegistrationComponent },      
-      { path: "admin", component: AuthComponent },
-      { path: "add", component: AddServiceComponent, canActivate: [AuthGuard] },
-      { path: "home", component: HomeComponent },
-      { path: "list", component: ListServiceComponent },
-      { path: "view", component: ViewServiceComponent },
-      { path: "view/:id", component: ViewServiceComponent },
-      { path: "edit", component: EditServiceComponent },
-      { path: "edit/:id", component: EditServiceComponent },
-      { path: "delete", component: DeleteServiceComponent },
-      { path: "offer", component: OfferComponent },
-      { path: "makeoffer", component: MakeOfferComponent },
-      { path: "makeoffer/:id", component: MakeOfferComponent },
-      { path: "suggestion", component: SuggestionComponent },
-      { path: "makesuggestion", component: MakeSuggestionComponent },
-      { path: "makesuggestion/:id", component: MakeSuggestionComponent },
-      { path: "**", redirectTo: "/home" }
-    ])],
+    HttpModule, MomentModule,FormsModule, ReactiveFormsModule,BrowserModule, RoutesModule],
   providers: [RestDataSource,AuthGuard],
   bootstrap: [AppComponent,HomeComponent,ListServiceComponent,NavbarComponent, AddServiceComponent,OfferComponent, ViewServiceComponent, MakeOfferComponent, SuggestionComponent, MakeSuggestionComponent, AuthComponent, RegistrationComponent, AccountComponent, ForgotComponent, ValidationComponent]
 })

@@ -17,9 +17,14 @@ export class RestDataSource{
   password: string;
   isValidatedUser: any[] = [];
 
-  //apiUrl = 'http://localhost:4201/';
+//apiUrl = 'http://localhost:4201/';
   apiUrl = 'http://159.203.156.208:4201/';
-  headers: Headers = new Headers({'Content-Type': 'application/json'});
+  headers: Headers = new Headers(
+    {
+      'Access-Control-Allow-Origin': '*',      
+      'Content-Type': 'application/json'
+    }
+  );
 
   public today : Date;
 
@@ -41,13 +46,11 @@ export class RestDataSource{
   addService(s: Service){
 
     let quantity = this.services.length;
-
-    this.today = new Date();
-    
-    //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[]));
+    this.today = new Date();        
     this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[],"",this.today.toLocaleString()), s.price);      
 
     this.http.post('http://159.203.156.208:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,this.username,[],[],"",this.today.toLocaleString(),s.price), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,this.username,[],[],"",this.today.toLocaleString(),s.price), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
     
       console.log('Added successfully');
     });
@@ -57,18 +60,18 @@ export class RestDataSource{
 
   addOffer(o:Offer, quantity: string){    
 
-    //this.services[quantity].offers.push(new Offer("1",o.title,o.description));    
-
+    
     this.http.post('http://159.203.156.208:4201/updateoffers', new Offer(quantity,o.title,o.description), {headers: this.headers}).map(res => res.json()).subscribe(data=>{                
+    //this.http.post('http://localhost:4201/updateoffers', new Offer(quantity,o.title,o.description), {headers: this.headers}).map(res => res.json()).subscribe(data=>{                
       this.services[parseInt(quantity)].offers.push(new Offer(quantity,o.title,o.description));    
     });
 
   }
 
   addSuggestion(s:Suggestion,quantity: string){
-    
-    //this.services[quantity].suggestions.push(new Suggestion("1",s.id));
+        
     this.http.post('http://159.203.156.208:4201/updatesuggestions', new Suggestion(quantity,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4201/updatesuggestions', new Suggestion(quantity,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       
       this.services[quantity].suggestions.push(new Suggestion(quantity,s.comments,s.user));      
     });
@@ -79,9 +82,9 @@ export class RestDataSource{
     let index = this.services.findIndex(line => line.id == id);    
 
     this.http.post('http://159.203.156.208:4201/removesuggestions', new Suggestion(index,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4201/removesuggestions', new Suggestion(index,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       
-      console.log(new Suggestion(index,s.comments,s.user));
-      //this.services[index].suggestions.push(new Suggestion("1",s.comments,s.user));      
+      console.log(new Suggestion(index,s.comments,s.user));      
     });
 
 
@@ -98,6 +101,7 @@ export class RestDataSource{
 
   getAuthentication(u:User){
     this.http.post('http://159.203.156.208:4201/authentication', new User("0", this.username,this.password), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4201/authentication', new User("0", this.username,this.password), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       this.authenticated=data;         
     });    
     return this.authenticated;
@@ -106,6 +110,7 @@ export class RestDataSource{
   setRegistration(u:User){
 
     this.http.post('http://159.203.156.208:4201/registration', new User(u.id,u.username,u.password,u.firstname,u.lastname,u.type,u.status,u.email), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4201/registration', new User(u.id,u.username,u.password,u.firstname,u.lastname,u.type,u.status,u.email), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       console.log(data);        
     });
   }
@@ -113,6 +118,7 @@ export class RestDataSource{
   getUsers(){
     
       this.http.post('http://159.203.156.208:4201/getusers', {"username":this.username}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      //this.http.post('http://localhost:4201/getusers', {"username":this.username}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             
         this.isValidatedUser = data;
       });
@@ -125,6 +131,7 @@ export class RestDataSource{
 
     this.services[parseInt(s)].assignTo=u;
     this.http.post('http://159.203.156.208:4201/assignto', {"id":s,"username":u}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4201/assignto', {"id":s,"username":u}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
       console.log(data);        
     });
   }
@@ -132,6 +139,7 @@ export class RestDataSource{
   setUpdateRegistration(u:string,p:string){
     
         this.http.post('http://159.203.156.208:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+        //this.http.post('http://localhost:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
               
           console.log('done');
         });
@@ -141,6 +149,7 @@ export class RestDataSource{
   sendEmail(){
 
     this.http.post('http://159.203.156.208:4202/sendemail', {"id":"123","username":"joseperez"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4202/sendemail', {"id":"123","username":"joseperez"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
       console.log('done');
     });
@@ -151,9 +160,12 @@ export class RestDataSource{
     let password = "data";
 
     this.http.post('http://159.203.156.208:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
       password="http://159.203.156.208:4205/validation/"+data[0].username;
+      //password="http://localhost:4205/validation/"+data[0].username;
       this.http.post('http://159.203.156.208:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      //this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             
         console.log('done'); 
       });
@@ -170,6 +182,7 @@ export class RestDataSource{
   validate(u:string,p:string){
 
     this.http.post('http://159.203.156.208:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+    //this.http.post('http://localhost:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
               
       console.log('done');
     });

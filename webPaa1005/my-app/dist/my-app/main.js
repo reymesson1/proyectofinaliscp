@@ -844,20 +844,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _list_service_delete_service_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./list-service/delete-service.component */ "./src/app/list-service/delete-service.component.ts");
 /* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
 /* harmony import */ var _add_service_add_service_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./add-service/add-service.component */ "./src/app/add-service/add-service.component.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _model_rest_datasource__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./model/rest.datasource */ "./src/app/model/rest.datasource.ts");
-/* harmony import */ var _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./offers/list-offers.component */ "./src/app/offers/list-offers.component.ts");
-/* harmony import */ var _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./offers/make-offers.component */ "./src/app/offers/make-offers.component.ts");
-/* harmony import */ var _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./suggestions/list-suggestions.component */ "./src/app/suggestions/list-suggestions.component.ts");
-/* harmony import */ var _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./suggestions/make-suggestions.component */ "./src/app/suggestions/make-suggestions.component.ts");
-/* harmony import */ var _admin_auth_guard__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/auth.guard */ "./src/app/admin/auth.guard.ts");
-/* harmony import */ var _admin_auth_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/auth.component */ "./src/app/admin/auth.component.ts");
-/* harmony import */ var _admin_registration_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/registration.component */ "./src/app/admin/registration.component.ts");
-/* harmony import */ var _admin_account_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/account.component */ "./src/app/admin/account.component.ts");
-/* harmony import */ var _admin_forgot_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/forgot.component */ "./src/app/admin/forgot.component.ts");
-/* harmony import */ var _admin_validation_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/validation.component */ "./src/app/admin/validation.component.ts");
-/* harmony import */ var angular2_moment__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! angular2-moment */ "./node_modules/angular2-moment/index.js");
-/* harmony import */ var angular2_moment__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(angular2_moment__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _model_rest_datasource__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./model/rest.datasource */ "./src/app/model/rest.datasource.ts");
+/* harmony import */ var _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./offers/list-offers.component */ "./src/app/offers/list-offers.component.ts");
+/* harmony import */ var _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./offers/make-offers.component */ "./src/app/offers/make-offers.component.ts");
+/* harmony import */ var _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./suggestions/list-suggestions.component */ "./src/app/suggestions/list-suggestions.component.ts");
+/* harmony import */ var _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./suggestions/make-suggestions.component */ "./src/app/suggestions/make-suggestions.component.ts");
+/* harmony import */ var _admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/auth.guard */ "./src/app/admin/auth.guard.ts");
+/* harmony import */ var _admin_auth_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/auth.component */ "./src/app/admin/auth.component.ts");
+/* harmony import */ var _admin_registration_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/registration.component */ "./src/app/admin/registration.component.ts");
+/* harmony import */ var _admin_account_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/account.component */ "./src/app/admin/account.component.ts");
+/* harmony import */ var _admin_forgot_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/forgot.component */ "./src/app/admin/forgot.component.ts");
+/* harmony import */ var _admin_validation_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/validation.component */ "./src/app/admin/validation.component.ts");
+/* harmony import */ var angular2_moment__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! angular2-moment */ "./node_modules/angular2-moment/index.js");
+/* harmony import */ var angular2_moment__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(angular2_moment__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _routes_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./routes.module */ "./src/app/routes.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -895,35 +895,13 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _list_service_list_service_component__WEBPACK_IMPORTED_MODULE_6__["ListServiceComponent"], _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__["NavbarComponent"], _add_service_add_service_component__WEBPACK_IMPORTED_MODULE_11__["AddServiceComponent"], _list_service_edit_service_component__WEBPACK_IMPORTED_MODULE_8__["EditServiceComponent"], _list_service_delete_service_component__WEBPACK_IMPORTED_MODULE_9__["DeleteServiceComponent"], _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_14__["OfferComponent"], _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_7__["ViewServiceComponent"], _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_15__["MakeOfferComponent"], _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_16__["SuggestionComponent"], _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_17__["MakeSuggestionComponent"], _admin_auth_component__WEBPACK_IMPORTED_MODULE_19__["AuthComponent"], _admin_registration_component__WEBPACK_IMPORTED_MODULE_20__["RegistrationComponent"], _admin_account_component__WEBPACK_IMPORTED_MODULE_21__["AccountComponent"], _admin_forgot_component__WEBPACK_IMPORTED_MODULE_22__["ForgotComponent"], _admin_validation_component__WEBPACK_IMPORTED_MODULE_23__["ValidationComponent"]
+                _home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _list_service_list_service_component__WEBPACK_IMPORTED_MODULE_6__["ListServiceComponent"], _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__["NavbarComponent"], _add_service_add_service_component__WEBPACK_IMPORTED_MODULE_11__["AddServiceComponent"], _list_service_edit_service_component__WEBPACK_IMPORTED_MODULE_8__["EditServiceComponent"], _list_service_delete_service_component__WEBPACK_IMPORTED_MODULE_9__["DeleteServiceComponent"], _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_13__["OfferComponent"], _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_7__["ViewServiceComponent"], _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_14__["MakeOfferComponent"], _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_15__["SuggestionComponent"], _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_16__["MakeSuggestionComponent"], _admin_auth_component__WEBPACK_IMPORTED_MODULE_18__["AuthComponent"], _admin_registration_component__WEBPACK_IMPORTED_MODULE_19__["RegistrationComponent"], _admin_account_component__WEBPACK_IMPORTED_MODULE_20__["AccountComponent"], _admin_forgot_component__WEBPACK_IMPORTED_MODULE_21__["ForgotComponent"], _admin_validation_component__WEBPACK_IMPORTED_MODULE_22__["ValidationComponent"]
             ],
             imports: [
-                _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"], angular2_moment__WEBPACK_IMPORTED_MODULE_24__["MomentModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["RouterModule"].forRoot([
-                    { path: "validation", component: _admin_validation_component__WEBPACK_IMPORTED_MODULE_23__["ValidationComponent"] },
-                    { path: "validation/:id", component: _admin_validation_component__WEBPACK_IMPORTED_MODULE_23__["ValidationComponent"] },
-                    { path: "account", component: _admin_account_component__WEBPACK_IMPORTED_MODULE_21__["AccountComponent"], canActivate: [_admin_auth_guard__WEBPACK_IMPORTED_MODULE_18__["AuthGuard"]] },
-                    { path: "forgot", component: _admin_forgot_component__WEBPACK_IMPORTED_MODULE_22__["ForgotComponent"] },
-                    { path: "registration", component: _admin_registration_component__WEBPACK_IMPORTED_MODULE_20__["RegistrationComponent"] },
-                    { path: "admin", component: _admin_auth_component__WEBPACK_IMPORTED_MODULE_19__["AuthComponent"] },
-                    { path: "add", component: _add_service_add_service_component__WEBPACK_IMPORTED_MODULE_11__["AddServiceComponent"], canActivate: [_admin_auth_guard__WEBPACK_IMPORTED_MODULE_18__["AuthGuard"]] },
-                    { path: "home", component: _home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
-                    { path: "list", component: _list_service_list_service_component__WEBPACK_IMPORTED_MODULE_6__["ListServiceComponent"] },
-                    { path: "view", component: _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_7__["ViewServiceComponent"] },
-                    { path: "view/:id", component: _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_7__["ViewServiceComponent"] },
-                    { path: "edit", component: _list_service_edit_service_component__WEBPACK_IMPORTED_MODULE_8__["EditServiceComponent"] },
-                    { path: "edit/:id", component: _list_service_edit_service_component__WEBPACK_IMPORTED_MODULE_8__["EditServiceComponent"] },
-                    { path: "delete", component: _list_service_delete_service_component__WEBPACK_IMPORTED_MODULE_9__["DeleteServiceComponent"] },
-                    { path: "offer", component: _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_14__["OfferComponent"] },
-                    { path: "makeoffer", component: _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_15__["MakeOfferComponent"] },
-                    { path: "makeoffer/:id", component: _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_15__["MakeOfferComponent"] },
-                    { path: "suggestion", component: _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_16__["SuggestionComponent"] },
-                    { path: "makesuggestion", component: _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_17__["MakeSuggestionComponent"] },
-                    { path: "makesuggestion/:id", component: _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_17__["MakeSuggestionComponent"] },
-                    { path: "**", redirectTo: "/home" }
-                ])
+                _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"], angular2_moment__WEBPACK_IMPORTED_MODULE_23__["MomentModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _routes_module__WEBPACK_IMPORTED_MODULE_24__["RoutesModule"]
             ],
-            providers: [_model_rest_datasource__WEBPACK_IMPORTED_MODULE_13__["RestDataSource"], _admin_auth_guard__WEBPACK_IMPORTED_MODULE_18__["AuthGuard"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _list_service_list_service_component__WEBPACK_IMPORTED_MODULE_6__["ListServiceComponent"], _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__["NavbarComponent"], _add_service_add_service_component__WEBPACK_IMPORTED_MODULE_11__["AddServiceComponent"], _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_14__["OfferComponent"], _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_7__["ViewServiceComponent"], _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_15__["MakeOfferComponent"], _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_16__["SuggestionComponent"], _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_17__["MakeSuggestionComponent"], _admin_auth_component__WEBPACK_IMPORTED_MODULE_19__["AuthComponent"], _admin_registration_component__WEBPACK_IMPORTED_MODULE_20__["RegistrationComponent"], _admin_account_component__WEBPACK_IMPORTED_MODULE_21__["AccountComponent"], _admin_forgot_component__WEBPACK_IMPORTED_MODULE_22__["ForgotComponent"], _admin_validation_component__WEBPACK_IMPORTED_MODULE_23__["ValidationComponent"]]
+            providers: [_model_rest_datasource__WEBPACK_IMPORTED_MODULE_12__["RestDataSource"], _admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AuthGuard"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _list_service_list_service_component__WEBPACK_IMPORTED_MODULE_6__["ListServiceComponent"], _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__["NavbarComponent"], _add_service_add_service_component__WEBPACK_IMPORTED_MODULE_11__["AddServiceComponent"], _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_13__["OfferComponent"], _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_7__["ViewServiceComponent"], _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_14__["MakeOfferComponent"], _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_15__["SuggestionComponent"], _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_16__["MakeSuggestionComponent"], _admin_auth_component__WEBPACK_IMPORTED_MODULE_18__["AuthComponent"], _admin_registration_component__WEBPACK_IMPORTED_MODULE_19__["RegistrationComponent"], _admin_account_component__WEBPACK_IMPORTED_MODULE_20__["AccountComponent"], _admin_forgot_component__WEBPACK_IMPORTED_MODULE_21__["ForgotComponent"], _admin_validation_component__WEBPACK_IMPORTED_MODULE_22__["ValidationComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1421,7 +1399,10 @@ var RestDataSource = /** @class */ (function () {
         this.isValidatedUser = [];
         //apiUrl = 'http://localhost:4201/';
         this.apiUrl = 'http://159.203.156.208:4201/';
-        this.headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({ 'Content-Type': 'application/json' });
+        this.headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+        });
         this.getInformation().subscribe(function (data) {
             _this.services = data;
         }, function (err) { console.log(err); });
@@ -1436,31 +1417,31 @@ var RestDataSource = /** @class */ (function () {
     RestDataSource.prototype.addService = function (s) {
         var quantity = this.services.length;
         this.today = new Date();
-        //this.services.push(new Service(quantity,s.title,s.description,s.category,s.notes,s.user,[],[]));
         this.services.push(new _service_model__WEBPACK_IMPORTED_MODULE_5__["Service"](quantity, s.title, s.description, s.category, s.notes, s.user, [], [], "", this.today.toLocaleString()), s.price);
         this.http.post('http://159.203.156.208:4201/addservices', new _service_model__WEBPACK_IMPORTED_MODULE_5__["Service"](quantity, s.title, s.description, s.category, s.notes, this.username, [], [], "", this.today.toLocaleString(), s.price), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/addservices', new Service(quantity,s.title,s.description,s.category,s.notes,this.username,[],[],"",this.today.toLocaleString(),s.price), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             console.log('Added successfully');
         });
     };
     RestDataSource.prototype.addOffer = function (o, quantity) {
-        //this.services[quantity].offers.push(new Offer("1",o.title,o.description));    
         var _this = this;
         this.http.post('http://159.203.156.208:4201/updateoffers', new _offer_model__WEBPACK_IMPORTED_MODULE_6__["Offer"](quantity, o.title, o.description), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/updateoffers', new Offer(quantity,o.title,o.description), {headers: this.headers}).map(res => res.json()).subscribe(data=>{                
             _this.services[parseInt(quantity)].offers.push(new _offer_model__WEBPACK_IMPORTED_MODULE_6__["Offer"](quantity, o.title, o.description));
         });
     };
     RestDataSource.prototype.addSuggestion = function (s, quantity) {
         var _this = this;
-        //this.services[quantity].suggestions.push(new Suggestion("1",s.id));
         this.http.post('http://159.203.156.208:4201/updatesuggestions', new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](quantity, s.comments, s.user), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/updatesuggestions', new Suggestion(quantity,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             _this.services[quantity].suggestions.push(new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](quantity, s.comments, s.user));
         });
     };
     RestDataSource.prototype.removeSuggestion = function (s, id) {
         var index = this.services.findIndex(function (line) { return line.id == id; });
         this.http.post('http://159.203.156.208:4201/removesuggestions', new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](index, s.comments, s.user), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/removesuggestions', new Suggestion(index,s.comments,s.user), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             console.log(new _suggestion_model__WEBPACK_IMPORTED_MODULE_7__["Suggestion"](index, s.comments, s.user));
-            //this.services[index].suggestions.push(new Suggestion("1",s.comments,s.user));      
         });
     };
     RestDataSource.prototype.removeService = function (id) {
@@ -1470,18 +1451,21 @@ var RestDataSource = /** @class */ (function () {
     RestDataSource.prototype.getAuthentication = function (u) {
         var _this = this;
         this.http.post('http://159.203.156.208:4201/authentication', new _model_user_model__WEBPACK_IMPORTED_MODULE_8__["User"]("0", this.username, this.password), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/authentication', new User("0", this.username,this.password), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             _this.authenticated = data;
         });
         return this.authenticated;
     };
     RestDataSource.prototype.setRegistration = function (u) {
         this.http.post('http://159.203.156.208:4201/registration', new _model_user_model__WEBPACK_IMPORTED_MODULE_8__["User"](u.id, u.username, u.password, u.firstname, u.lastname, u.type, u.status, u.email), { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/registration', new User(u.id,u.username,u.password,u.firstname,u.lastname,u.type,u.status,u.email), {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             console.log(data);
         });
     };
     RestDataSource.prototype.getUsers = function () {
         var _this = this;
         this.http.post('http://159.203.156.208:4201/getusers', { "username": this.username }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/getusers', {"username":this.username}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             _this.isValidatedUser = data;
         });
         return this.isValidatedUser;
@@ -1489,16 +1473,19 @@ var RestDataSource = /** @class */ (function () {
     RestDataSource.prototype.setAssignTo = function (s, u) {
         this.services[parseInt(s)].assignTo = u;
         this.http.post('http://159.203.156.208:4201/assignto', { "id": s, "username": u }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/assignto', {"id":s,"username":u}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             console.log(data);
         });
     };
     RestDataSource.prototype.setUpdateRegistration = function (u, p) {
         this.http.post('http://159.203.156.208:4201/setusers', { "username": u, "password": p }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             console.log('done');
         });
     };
     RestDataSource.prototype.sendEmail = function () {
         this.http.post('http://159.203.156.208:4202/sendemail', { "id": "123", "username": "joseperez" }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4202/sendemail', {"id":"123","username":"joseperez"}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             console.log('done');
         });
     };
@@ -1506,8 +1493,11 @@ var RestDataSource = /** @class */ (function () {
         var _this = this;
         var password = "data";
         this.http.post('http://159.203.156.208:4201/forgotpassword', { "email": email }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             password = "http://159.203.156.208:4205/validation/" + data[0].username;
+            //password="http://localhost:4205/validation/"+data[0].username;
             _this.http.post('http://159.203.156.208:4202/sendpassword', { "email": email, "password": password }, { headers: _this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+                //this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
                 console.log('done');
             });
         });
@@ -1518,6 +1508,7 @@ var RestDataSource = /** @class */ (function () {
     };
     RestDataSource.prototype.validate = function (u, p) {
         this.http.post('http://159.203.156.208:4201/setusers', { "username": u, "password": p }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            //this.http.post('http://localhost:4201/setusers', {"username":u,"password":p}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             console.log('done');
         });
     };
@@ -1830,6 +1821,98 @@ var MakeOfferComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_model_rest_datasource__WEBPACK_IMPORTED_MODULE_1__["RestDataSource"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], MakeOfferComponent);
     return MakeOfferComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/routes.module.ts":
+/*!**********************************!*\
+  !*** ./src/app/routes.module.ts ***!
+  \**********************************/
+/*! exports provided: RoutesModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoutesModule", function() { return RoutesModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home.component */ "./src/app/home.component.ts");
+/* harmony import */ var _list_service_list_service_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./list-service/list-service.component */ "./src/app/list-service/list-service.component.ts");
+/* harmony import */ var _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./list-service/view-service.component */ "./src/app/list-service/view-service.component.ts");
+/* harmony import */ var _list_service_edit_service_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./list-service/edit-service.component */ "./src/app/list-service/edit-service.component.ts");
+/* harmony import */ var _list_service_delete_service_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./list-service/delete-service.component */ "./src/app/list-service/delete-service.component.ts");
+/* harmony import */ var _add_service_add_service_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./add-service/add-service.component */ "./src/app/add-service/add-service.component.ts");
+/* harmony import */ var _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./offers/list-offers.component */ "./src/app/offers/list-offers.component.ts");
+/* harmony import */ var _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./offers/make-offers.component */ "./src/app/offers/make-offers.component.ts");
+/* harmony import */ var _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./suggestions/list-suggestions.component */ "./src/app/suggestions/list-suggestions.component.ts");
+/* harmony import */ var _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./suggestions/make-suggestions.component */ "./src/app/suggestions/make-suggestions.component.ts");
+/* harmony import */ var _admin_auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/auth.guard */ "./src/app/admin/auth.guard.ts");
+/* harmony import */ var _admin_auth_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/auth.component */ "./src/app/admin/auth.component.ts");
+/* harmony import */ var _admin_registration_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/registration.component */ "./src/app/admin/registration.component.ts");
+/* harmony import */ var _admin_account_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/account.component */ "./src/app/admin/account.component.ts");
+/* harmony import */ var _admin_forgot_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/forgot.component */ "./src/app/admin/forgot.component.ts");
+/* harmony import */ var _admin_validation_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/validation.component */ "./src/app/admin/validation.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var RoutesModule = /** @class */ (function () {
+    function RoutesModule() {
+    }
+    RoutesModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot([
+                    { path: "validation", component: _admin_validation_component__WEBPACK_IMPORTED_MODULE_17__["ValidationComponent"] },
+                    { path: "validation/:id", component: _admin_validation_component__WEBPACK_IMPORTED_MODULE_17__["ValidationComponent"] },
+                    { path: "account", component: _admin_account_component__WEBPACK_IMPORTED_MODULE_15__["AccountComponent"], canActivate: [_admin_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+                    { path: "forgot", component: _admin_forgot_component__WEBPACK_IMPORTED_MODULE_16__["ForgotComponent"] },
+                    { path: "registration", component: _admin_registration_component__WEBPACK_IMPORTED_MODULE_14__["RegistrationComponent"] },
+                    { path: "admin", component: _admin_auth_component__WEBPACK_IMPORTED_MODULE_13__["AuthComponent"] },
+                    { path: "add", component: _add_service_add_service_component__WEBPACK_IMPORTED_MODULE_7__["AddServiceComponent"], canActivate: [_admin_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+                    { path: "home", component: _home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
+                    { path: "list", component: _list_service_list_service_component__WEBPACK_IMPORTED_MODULE_3__["ListServiceComponent"] },
+                    { path: "view", component: _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_4__["ViewServiceComponent"] },
+                    { path: "view/:id", component: _list_service_view_service_component__WEBPACK_IMPORTED_MODULE_4__["ViewServiceComponent"] },
+                    { path: "edit", component: _list_service_edit_service_component__WEBPACK_IMPORTED_MODULE_5__["EditServiceComponent"] },
+                    { path: "edit/:id", component: _list_service_edit_service_component__WEBPACK_IMPORTED_MODULE_5__["EditServiceComponent"] },
+                    { path: "delete", component: _list_service_delete_service_component__WEBPACK_IMPORTED_MODULE_6__["DeleteServiceComponent"] },
+                    { path: "offer", component: _offers_list_offers_component__WEBPACK_IMPORTED_MODULE_8__["OfferComponent"] },
+                    { path: "makeoffer", component: _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_9__["MakeOfferComponent"] },
+                    { path: "makeoffer/:id", component: _offers_make_offers_component__WEBPACK_IMPORTED_MODULE_9__["MakeOfferComponent"] },
+                    { path: "suggestion", component: _suggestions_list_suggestions_component__WEBPACK_IMPORTED_MODULE_10__["SuggestionComponent"] },
+                    { path: "makesuggestion", component: _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_11__["MakeSuggestionComponent"] },
+                    { path: "makesuggestion/:id", component: _suggestions_make_suggestions_component__WEBPACK_IMPORTED_MODULE_11__["MakeSuggestionComponent"] },
+                    { path: "**", redirectTo: "/home" }
+                ])
+            ],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        })
+    ], RoutesModule);
+    return RoutesModule;
 }());
 
 

@@ -1,14 +1,12 @@
 var express = require('express');
-
+var cors = require('cors');
 var bodyParser = require('body-parser');
-
 var app = express();
-
 app.use(express.static('static'));
-
 app.use(bodyParser.json());
-
 var dba = require('./lib/dba-helper.js')();
+app.use(cors());
+app.options('*', cors());
 
 app.get('/services', function(req,res){
    
