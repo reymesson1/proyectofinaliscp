@@ -1403,8 +1403,8 @@ var RestDataSource = /** @class */ (function () {
         this.services = [];
         this.authenticated = {};
         this.isValidatedUser = [];
-        this.apiUrl = 'http://localhost:4201/';
-        //apiUrl = 'http://159.203.156.208:4201/';
+        //apiUrl = 'http://localhost:4201/';
+        this.apiUrl = 'http://159.203.156.208:4201/';
         this.headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
@@ -1500,10 +1500,10 @@ var RestDataSource = /** @class */ (function () {
         var password = "data";
         //this.http.post('http://159.203.156.208:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
         this.http.post(this.apiUrl + 'forgotpassword', { "email": email }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
-            //password="http://159.203.156.208:4205/validation/"+data[0].username;
-            password = "http://localhost:4201/validation/" + data[0].username;
-            // this.http.post('http://159.203.156.208:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
-            _this.http.post('http://localhost:4202/sendpassword', { "email": email, "password": password }, { headers: _this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+            password = "http://159.203.156.208:4205/validation/" + data[0].username;
+            //password="http://localhost:4201/validation/"+data[0].username;
+            _this.http.post('http://159.203.156.208:4202/sendpassword', { "email": email, "password": password }, { headers: _this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
+                //this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
                 console.log('done');
             });
         });
