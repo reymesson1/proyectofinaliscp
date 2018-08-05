@@ -24,6 +24,9 @@
 </div>
 
 <br/>
+<div class="alert alert-danger" *ngIf="offerLogged" role="alert">
+  You should be logged to make this operation.
+</div>  
 
 <div id="accordion">
   <div class="card" *ngFor="let offer of this.data.services[this.id].offers; let i = index" >

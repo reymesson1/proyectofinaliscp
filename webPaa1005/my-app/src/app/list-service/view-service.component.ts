@@ -76,10 +76,18 @@ export class ViewServiceComponent {
   newOffer : Object = new Object();
   newSuggestion: Suggestion = new Suggestion();
 
+  offerLogged : boolean = false;
+
   addOffer(o){
 
-    this.data.addOffer(o,this.id);      
-    this.newOffer = new Object();
+    if(this.data.username){
+      this.data.addOffer(o,this.id);      
+      this.newOffer = new Object();
+    }else{
+      
+      this.offerLogged = true;
+    }
+    
   }  
 
   public toggle : boolean = false;
