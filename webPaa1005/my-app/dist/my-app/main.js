@@ -1403,8 +1403,8 @@ var RestDataSource = /** @class */ (function () {
         this.services = [];
         this.authenticated = {};
         this.isValidatedUser = [];
-        //apiUrl = 'http://localhost:4201/';
-        this.apiUrl = 'http://159.203.156.208:4201/';
+        this.apiUrl = 'http://localhost:4201/';
+        //apiUrl = 'http://159.203.156.208:4201/';
         this.headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
@@ -1500,10 +1500,10 @@ var RestDataSource = /** @class */ (function () {
         var password = "data";
         //this.http.post('http://159.203.156.208:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
         this.http.post(this.apiUrl + 'forgotpassword', { "email": email }, { headers: this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
-            password = "http://159.203.156.208:4205/validation/" + data[0].username;
-            //password="http://localhost:4201/validation/"+data[0].username;
-            _this.http.post('http://159.203.156.208:4202/sendpassword', { "email": email, "password": password }, { headers: _this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
-                //this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+            //password="http://159.203.156.208:4205/validation/"+data[0].username;
+            password = "http://localhost:4201/validation/" + data[0].username;
+            // this.http.post('http://159.203.156.208:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+            _this.http.post('http://localhost:4202/sendpassword', { "email": email, "password": password }, { headers: _this.headers }).map(function (res) { return res.json(); }).subscribe(function (data) {
                 console.log('done');
             });
         });
@@ -1629,7 +1629,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-primary\">\r\n    <a class=\"navbar-brand\" href=\"#\"><i class=\"fa fa-graduation-cap\"></i></a>\r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    \r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" routerLink=\"/home\">Home <span class=\"sr-only\">(current)</span></a>\r\n            </li>\r\n        </ul>\r\n        <form class=\"form-inline my-2 my-lg-0\">\r\n            <button class=\"btn btn-success my-2 my-sm-0\" routerLink=\"/account\" >My Account</button>\r\n        </form>\r\n    </div>\r\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-primary\">\r\n    <a class=\"navbar-brand\" href=\"#\"><i class=\"fa fa-graduation-cap\"></i></a>\r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    \r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" routerLink=\"/home\">Home <span class=\"sr-only\">(current)</span></a>\r\n            </li>\r\n        </ul>\r\n        <form class=\"form-inline my-2 my-lg-0\">\r\n            <div class=\"dropdown\">\r\n                <button class=\"btn btn-success dropdown-toggle\" type=\"button\" id=\"about-us\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                    My Account\r\n                </button>\r\n                <div class=\"dropdown-menu\" aria-labelledby=\"about-us\">\r\n                    <a class=\"dropdown-item\" routerLink=\"/account\">My Account</a>\r\n                    <a class=\"dropdown-item\" *ngIf=\"!this.data.authenticated.authenticated\" routerLink=\"/account\">Login</a>\r\n                    <a class=\"dropdown-item\" *ngIf=\"this.data.authenticated.authenticated\" (click)=\"logoff()\" >Logout</a>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</nav>"
 
 /***/ }),
 
@@ -1644,22 +1644,38 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-primary\"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavbarComponent", function() { return NavbarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _model_rest_datasource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../model/rest.datasource */ "./src/app/model/rest.datasource.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent() {
+    function NavbarComponent(router, data) {
+        this.router = router;
+        this.data = data;
+        this.isLogged = false;
+        this.isLogged = this.data.authenticated.authenticated;
     }
+    NavbarComponent.prototype.logoff = function () {
+        this.router.navigateByUrl('/home');
+        window.location.reload();
+    };
     NavbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'navbar',
             template: __webpack_require__(/*! ./navbar.component.html */ "./src/app/navbar/navbar.component.html"),
             styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/navbar/navbar.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _model_rest_datasource__WEBPACK_IMPORTED_MODULE_1__["RestDataSource"]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
