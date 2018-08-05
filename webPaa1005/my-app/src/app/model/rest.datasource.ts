@@ -17,8 +17,8 @@ export class RestDataSource{
   password: string;
   isValidatedUser: any[] = [];
 
-  //apiUrl = 'http://localhost:4201/';
-  apiUrl = 'http://159.203.156.208:4201/';
+  apiUrl = 'http://localhost:4201/';
+  //apiUrl = 'http://159.203.156.208:4201/';
   headers: Headers = new Headers(
     {
       'Access-Control-Allow-Origin': '*',      
@@ -162,10 +162,10 @@ export class RestDataSource{
     //this.http.post('http://159.203.156.208:4201/forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
     this.http.post(this.apiUrl+'forgotpassword', {"email":email}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
           
-      password="http://159.203.156.208:4205/validation/"+data[0].username;
-      //password="http://localhost:4201/validation/"+data[0].username;
-     this.http.post('http://159.203.156.208:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
-      //this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      //password="http://159.203.156.208:4205/validation/"+data[0].username;
+      password="http://localhost:4201/validation/"+data[0].username;
+      // this.http.post('http://159.203.156.208:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
+      this.http.post('http://localhost:4202/sendpassword', {"email":email,"password":password}, {headers: this.headers}).map(res => res.json()).subscribe(data=>{
             
         console.log('done'); 
       });
